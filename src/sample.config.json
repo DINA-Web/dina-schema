@@ -4,7 +4,6 @@
   "basePath": "/collections/api/v01/",
   "info": {
     "description": "Will be added from ./specification/description.md",
-    "version": "1.0.0",
     "title": "Dina api",
     "contact": {
       "email": "oberg.anton@gmail.com"
