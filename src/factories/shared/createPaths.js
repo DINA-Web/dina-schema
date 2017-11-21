@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const interpolate = require('./interpolate')
 /* eslint-disable sort-keys */
 const arrayResponseSchemaBase = {
   additionalProperties: false,
@@ -97,6 +98,5 @@ module.exports = function createPaths(
     paths[`/${name}`] = pathObject
     return paths
   }, {})
-
-  return JSON.parse(JSON.stringify(result).replace(/__ROOT__/g, referenceRoot))
+  return interpolate(result, '__ROOT__', referenceRoot)
 }
