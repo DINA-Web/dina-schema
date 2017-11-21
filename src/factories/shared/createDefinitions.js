@@ -4,7 +4,13 @@ const fs = require('fs')
 module.exports = function createDefinitions(
   { attachIds = false, referenceRoot = '#/definitions/' } = {}
 ) {
-  const definitionsPath = path.join(__dirname, '../', 'specification', 'models')
+  const definitionsPath = path.join(
+    __dirname,
+    '../',
+    '../',
+    'specification',
+    'models'
+  )
   const files = fs.readdirSync(definitionsPath)
   const result = files.reduce((definitions, fileName) => {
     const fullPath = path.join(definitionsPath, fileName)

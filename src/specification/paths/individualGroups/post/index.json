@@ -1,0 +1,32 @@
+{
+  "tags": ["collection-api"],
+  "summary": "Create an individual group and a catalogUnit if not existing",
+  "description":"",
+  "operationId": "createIndividualGroup",
+  "produces": ["application/json"],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "description": "Get individual groups based on catalogNumber",
+      "required": true,
+      "schema": {
+        "$ref": "__ROOT__createIndividualGroupRequest"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "successful operation",
+      "$schema": {
+        "$model": "__ROOT__individualGroup",
+        "$modelType": "individualGroup",
+        "$type": "arrayResponse"
+      }
+    },
+    "400": {
+      "description": "Invalid status value"
+    }
+  }
+}
+

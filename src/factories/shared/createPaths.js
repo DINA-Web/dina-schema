@@ -33,8 +33,10 @@ const buildArrayResponseSchema = (type, model) => {
   )
 }
 
-module.exports = function createPaths({ wrapExamples = true } = {}) {
-  const pathsPath = path.join(__dirname, '../', 'specification', 'paths')
+module.exports = function createPaths(
+  { wrapExamples = true, referenceRoot = '#/definitions/' } = {}
+) {
+  const pathsPath = path.join(__dirname, '../', '../', 'specification', 'paths')
   const files = fs.readdirSync(pathsPath)
   const result = files.reduce((paths, fileName) => {
     const fullPath = path.join(pathsPath, fileName)
@@ -48,10 +50,8 @@ module.exports = function createPaths({ wrapExamples = true } = {}) {
     let pathObject
 
     if (!isDirectory) {
-      console.log(1)
       pathObject = require(fullPath)
     } else {
-      console.log(2)
       const verbs = fs.readdirSync(fullPath)
       pathObject = verbs.reduce((obj, verb) => {
         if (verb[0] === '.') {
@@ -98,5 +98,5 @@ module.exports = function createPaths({ wrapExamples = true } = {}) {
     return paths
   }, {})
 
-  return result
+  return JSON.parse(JSON.stringify(result).replace(/__ROOT__/g, referenceRoot))
 }
