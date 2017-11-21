@@ -1,0 +1,45 @@
+{
+  "name": "dina-schema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:swagger && npm run build:docs",
+    "build:docs": "spectacle ./build/swagger.json -t docs",
+    "build:swagger": "node ./src/createSpecifications",
+    "build:swagger:watch": "node ./src/watch",
+    "install": "npm run build:swagger",
+    "lint:js": "eslint 'src/**/*.js'",
+    "pretty": "prettier --single-quote --write 'src/**/*.{js,jsx}'",
+    "start": "npm-run-all -p build:swagger:watch start:spectacle start:node-swagger",
+    "start:node-swagger": "node src/server.js",
+    "start:spectacle": "spectacle -d ./build/swagger.json -t docs",
+    "test": "npm run lint:js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-plugin-react": "^7.5.1",
+    "spectacle-docs": "^0.9.12"
+  },
+  "devDependencies": {
+    "ajv": "^5.3.0",
+    "babel-eslint": "^8.0.1",
+    "deep-freeze": "^0.0.1",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "express": "^4.16.2",
+    "jest": "^21.2.1",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.8.2",
+    "swagger-tools": "^0.10.3",
+    "watch-glob": "^0.1.3"
+  }
+}

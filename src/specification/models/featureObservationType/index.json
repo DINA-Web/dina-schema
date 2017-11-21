@@ -1,0 +1,8 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "integer" },
+    "featureObservationTypeName": { "type": "string" }
+  },
+  "required": ["id", "featureObservationTypeName"]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "search",
+  "description": "Everything related to search",
+  "externalDocs": {
+    "description": "Find out more",
+    "url": "http://swagger.io"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "catalogNumber": { "type": "string", "example": "1234" },
+    "id": { "type": "integer" },
+    "individualGroup": { "$ref": "__ROOT__individualGroup" }
+  },
+  "required": ["catalogNumber"]
+}
+

@@ -1,0 +1,13 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "appliesToIndividualGroupId": { "type": "integer" },
+    "individualGroup": {
+      "$ref": "__ROOT__individualGroup"
+    },
+    "id": { "type": "integer" },
+    "identificationText": { "type": "string" },
+    "version": { "type": "integer" }
+  },
+  "required": ["identificationText"]
+}

@@ -1,0 +1,31 @@
+{
+  "tags": ["registration", "endpoints"],
+  "summary": "Finds individualGroups",
+  "description":"",
+  "operationId": "getIndividualGroups",
+  "produces": ["application/json"],
+  "parameters": [
+    {
+      "name": "filter[catalogNumber]",
+      "in": "query",
+      "description": "Get individual groups based on catalogNumber",
+      "required": true,
+      "type": "string",
+      "default": "some-catalog-number"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "successful operation",
+      "$schema": {
+        "$model": "#/definitions/individualGroup",
+        "$modelType": "individualGroup",
+        "$type": "arrayResponse"
+      }
+    },
+    "400": {
+      "description": "Invalid status value"
+    }
+  }
+}
+

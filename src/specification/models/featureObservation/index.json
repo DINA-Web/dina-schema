@@ -1,0 +1,10 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "featureObservationText": { "type": "string" },
+    "id": { "type": "integer" },
+    "featureObservationType": { "$ref": "__ROOT__featureObservationType" },
+    "version": { "type": "integer" }
+  },
+  "required": ["featureObservationText"]
+}

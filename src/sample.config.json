@@ -1,0 +1,34 @@
+{
+  "swagger": "2.0",
+  "host": "alpha-api-docs.dina-web.net",
+  "basePath": "/collections/api/v01/",
+  "info": {
+    "description": "Will be added from ./specification/description.md",
+    "version": "1.0.0",
+    "title": "Dina api",
+    "contact": {
+      "email": "oberg.anton@gmail.com"
+    },
+    "license": {
+      "name": "GNU Affero General Public License",
+      "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    }
+  },
+  "schemes": ["http"],
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  }
+}
