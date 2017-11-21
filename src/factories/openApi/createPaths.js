@@ -1,16 +1,25 @@
 const path = require('path')
 const fs = require('fs')
 const buildArrayResponseSchema = require('../shared/buildArrayResponseSchema')
+const interpolate = require('../shared/interpolate')
+
+const getDescription = ({ verbObject, verbPath }) => {
+  const verbDescriptionPath = path.join(verbPath, 'description.md')
+  if (fs.existsSync(verbDescriptionPath)) {
+    return fs.readFileSync(verbDescriptionPath, 'utf8')
+  }
+  return verbObject.description
+}
 
 const buildVerb = ({ basePath, verbName, wrapExamples }) => {
   const verbPath = path.join(basePath, verbName)
-  const verbDescriptionPath = path.join(verbPath, 'description.md')
   const verbExamplePath = path.join(verbPath, 'example.json')
 
   const verbObject = require(verbPath)
-  if (fs.existsSync(verbDescriptionPath)) {
-    verbObject.description = fs.readFileSync(verbDescriptionPath, 'utf8')
-  }
+  verbObject.description = getDescription({
+    verbObject,
+    verbPath,
+  })
 
   if (fs.existsSync(verbExamplePath)) {
     const example = require(verbExamplePath)
@@ -57,30 +66,32 @@ module.exports = function createPaths(
       .join('/')
 
     const isDirectory = fs.lstatSync(fullPath).isDirectory()
-    let pathObject
 
     if (!isDirectory) {
-      pathObject = require(fullPath)
-    } else {
-      const verbs = fs.readdirSync(fullPath)
-      pathObject = verbs.reduce((obj, verbName) => {
-        if (verbName[0] === '.') {
-          return obj
-        }
-
-        const verb = buildVerb({
-          basePath: fullPath,
-          verbName,
-          wrapExamples,
-        })
-        obj[verbName] = verb
-        return obj
-      }, {})
+      throw new Error(
+        'Path definition need to be separated into different verbs'
+      )
     }
+    const verbs = fs.readdirSync(fullPath)
+    const pathObject = verbs.reduce((obj, verbName) => {
+      if (verbName[0] === '.') {
+        return obj
+      }
 
-    paths[`/${name}`] = pathObject
-    return paths
+      const verb = buildVerb({
+        basePath: fullPath,
+        verbName,
+        wrapExamples,
+      })
+      obj[verbName] = verb
+      return obj
+    }, {})
+
+    return {
+      ...paths,
+      [`/${name}`]: pathObject,
+    }
   }, {})
 
-  return JSON.parse(JSON.stringify(result).replace(/__ROOT__/g, referenceRoot))
+  return interpolate(result, '__ROOT__', referenceRoot)
 }

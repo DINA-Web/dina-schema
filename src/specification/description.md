@@ -1,7 +1,7 @@
-This is a first draft of dina api documentation.
-
-If displayed in swagger docs click the following link for
-[sane query options](/?docExpansion=false&defaultModelRendering=model&defaultModelExpandDepth=0)
+This is a first draft of dina api documentation. It can either be viewed as an
+[Open api spec](https://alpha-api-docs.dina-web.net/?url=https://alpha-api-docs.dina-web.net/openApi.json&docExpansion=false&defaultModelRendering=model&defaultModelExpandDepth=0)
+or as a
+[Swagger spec](https://alpha-api-docs.dina-web.net/?url=https://alpha-api-docs.dina-web.net/swagger.json&docExpansion=false&defaultModelRendering=model&defaultModelExpandDepth=0)
 
 Descriptions like below can be written in markdown:
 
