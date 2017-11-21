@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-module.exports = function createBase(config) {
+module.exports = function createBase(config, packageJson) {
   const descriptionPath = path.join(
     __dirname,
     '../',
@@ -13,5 +13,6 @@ module.exports = function createBase(config) {
   const description = fs.readFileSync(descriptionPath, 'utf8')
 
   base.info.description = description
+  base.info.version = packageJson.version
   return base
 }
