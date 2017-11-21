@@ -13,8 +13,11 @@
     "start:swagger": "docker run -p 80:8080 -e SWAGGER_JSON=/build/swagger.json -v $(pwd)/build:/build swaggerapi/swagger-ui",
     "test": "npm run lint:js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Anton Öberg <oberg.anton@gmail.com>",
+  "license": "AGPL V3",
+  "contributors": [
+    "Anton Öberg <oberg.anton@gmail.com>"
+  ],
   "dependencies": {
     "eslint-plugin-react": "^7.5.1",
     "spectacle-docs": "^0.9.12"
