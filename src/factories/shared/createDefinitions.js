@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const interpolate = require('./interpolate')
 
 module.exports = function createDefinitions(
   { attachIds = false, referenceRoot = '#/definitions/' } = {}
@@ -37,5 +38,5 @@ module.exports = function createDefinitions(
     return definitions
   }, {})
 
-  return JSON.parse(JSON.stringify(result).replace(/__ROOT__/g, referenceRoot))
+  return interpolate(result, '__ROOT__', referenceRoot)
 }
