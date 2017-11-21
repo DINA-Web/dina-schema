@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = function createDefinitions() {
-  const tagsPath = path.join(__dirname, '../', 'specification', 'tags')
+  const tagsPath = path.join(__dirname, '../', '../', 'specification', 'tags')
   const files = fs.readdirSync(tagsPath)
   return files.reduce((tags, fileName) => {
     const fullPath = path.join(tagsPath, fileName)

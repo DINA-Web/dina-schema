@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "individualGroup",
+          "default": "individualGroup"
+        },
+        "attributes": {
+          "$ref": "__ROOT__individualGroup"
+        },
+        "additionalData": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {"type": "string", "default": "catalogNumber", "example": "catalogNumber"},
+              "catalogNumber": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

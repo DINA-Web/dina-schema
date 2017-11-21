@@ -1,7 +1,4 @@
 {
-  "swagger": "2.0",
-  "host": "alpha-api-docs.dina-web.net",
-  "basePath": "/collections/api/v01/",
   "info": {
     "description": "Will be added from ./specification/description.md",
     "title": "Dina api",
@@ -13,7 +10,6 @@
       "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
     }
   },
-  "schemes": ["http"],
   "securityDefinitions": {
     "petstore_auth": {
       "type": "oauth2",

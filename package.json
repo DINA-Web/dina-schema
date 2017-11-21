@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:swagger && npm run build:docs",
+    "build": "npm run build:swagger",
     "build:docs": "spectacle ./build/swagger.json -t docs",
     "build:swagger": "node ./src/createSpecifications",
     "build:swagger:watch": "node ./src/watch",

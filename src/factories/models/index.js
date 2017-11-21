@@ -1,4 +1,4 @@
-const createDefinitions = require('./createDefinitions')
+const createDefinitions = require('../shared/createDefinitions')
 
 /* eslint-disable sort-keys */
 

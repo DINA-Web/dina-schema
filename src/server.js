@@ -6,7 +6,7 @@ const swaggerTools = require('swagger-tools')
 // const bodyParser = require('body-parser')
 
 const app = express()
-const swaggerSpecFileName = `swagger.json`
+const swaggerSpecFileName = `openApi.json`
 const swaggerPath = path.join(__dirname, '../build', swaggerSpecFileName)
 const swaggerDoc = require(swaggerPath)
 

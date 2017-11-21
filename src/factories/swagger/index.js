@@ -1,9 +1,9 @@
 const createBase = require('./createBase')
-const createPaths = require('./createPaths')
-const createTags = require('./createTags')
-const createDefinitions = require('./createDefinitions')
-const sampleConfig = require('../sample.config.json')
-const packageJson = require('../../package.json')
+const createPaths = require('../shared/createPaths')
+const createTags = require('../shared/createTags')
+const createDefinitions = require('../shared/createDefinitions')
+const sampleConfig = require('../../sample.config.json')
+const packageJson = require('../../../package.json')
 
 const paths = createPaths({
   wrapExamples: true,
@@ -16,7 +16,10 @@ const definitions = createDefinitions({
 })
 
 module.exports = function createSwaggerSpecification(config = sampleConfig) {
-  const base = createBase(config, packageJson)
+  const base = createBase(
+    Object.assign({}, config),
+    Object.assign({}, packageJson)
+  )
   base.tags = tags
   base.paths = paths
   base.definitions = definitions
