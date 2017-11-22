@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node ./src/build",
+    "build": "mkdir -p ./build && node ./src/build",
     "install": "npm run build",
     "lint:js": "eslint 'src/**/*.js'",
     "pretty": "prettier --single-quote --write 'src/**/*.{js,jsx}'",
