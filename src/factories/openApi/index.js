@@ -5,22 +5,20 @@ const createDefinitions = require('../shared/createDefinitions')
 const sampleConfig = require('../../sample.config.json')
 const packageJson = require('../../../package.json')
 
-const paths = createPaths({
-  referenceRoot: '#/components/schemas/',
-  wrapExamples: false,
-})
-const tags = createTags()
-
-const definitions = createDefinitions({
-  attachIds: false,
-  referenceRoot: '#/components/schemas/',
-})
-
 module.exports = function createSwaggerSpecification(config = sampleConfig) {
-  const base = createBase(
-    Object.assign({}, config),
-    Object.assign({}, packageJson)
-  )
+  const base = createBase({ ...config }, { ...packageJson })
+
+  const tags = createTags()
+  const paths = createPaths({
+    referenceRoot: '#/components/schemas/',
+    wrapExamples: false,
+  })
+
+  const definitions = createDefinitions({
+    attachIds: false,
+    referenceRoot: '#/components/schemas/',
+  })
+
   base.tags = tags
   base.paths = paths
   base.components = {

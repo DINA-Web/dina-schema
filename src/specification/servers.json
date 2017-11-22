@@ -1,10 +1,10 @@
-[
-  {
-    "url": "https://alpha-api-docs.dina-web.net/collections/api/v01/",
+{
+  "collectionsApi":   {
+    "url": "https://alpha-api.dina-web.net/collections/api/v01/",
     "description": "Api server"
   },
-  {
-    "url": "https://alpha-keycloak.dina-web.net/collections/api/v01/",
+  "keycloak": {
+    "url": "https://alpha-keycloak.dina-web.net",
     "description": "Auth server"
   }
-]
+}
