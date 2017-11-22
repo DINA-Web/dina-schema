@@ -8,6 +8,10 @@ const arrayResponseSchemaBase = {
       items: {
         type: 'object',
         properties: {
+          id: {
+            type: 'integer',
+            example: 1234,
+          },
           type: {
             type: 'string',
             default: '__TYPE__',

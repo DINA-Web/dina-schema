@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const buildArrayResponseSchema = require('../shared/buildArrayResponseSchema')
+const buildObjectResponseSchema = require('../shared/buildObjectResponseSchema')
 const interpolate = require('../shared/interpolate')
 
 const getDescription = ({ verbObject, verbPath }) => {
@@ -41,6 +42,16 @@ const buildVerb = ({ basePath, verbName, wrapExamples }) => {
         model
       )
     }
+
+    if (verbObject.responses['200'].$schema.$type === 'objectResponse') {
+      const model = verbObject.responses['200'].$schema.$model
+      const modelType = verbObject.responses['200'].$schema.$modelType
+      verbObject.responses['200'].schema = buildObjectResponseSchema(
+        modelType,
+        model
+      )
+    }
+
     delete verbObject.responses['200'].$schema
   }
   verbObject.responses['200'].content = {
