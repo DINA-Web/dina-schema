@@ -1,7 +1,7 @@
 {
-  "tags": ["collection-api"],
+  "tags": ["collections-api"],
   "summary": "Finds individualGroups",
-  "description":"",
+  "description": "",
   "operationId": "getIndividualGroups",
   "produces": ["application/json"],
   "parameters": [
@@ -11,7 +11,15 @@
       "description": "catalog number used to filter individualGroups",
       "required": true,
       "type": "string",
-      "default": "some-catalog-number"
+      "example": "some-catalog-number"
+    },
+    {
+      "name": "include",
+      "in": "query",
+      "description": "sub models to include in a comma separated list",
+      "required": false,
+      "type": "string",
+      "example": "physicalUnits.catalogedUnit,identifications"
     }
   ],
   "responses": {
@@ -28,4 +36,3 @@
     }
   }
 }
-

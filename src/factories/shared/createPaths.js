@@ -67,6 +67,13 @@ module.exports = function createPaths(
           verbObject.description = fs.readFileSync(verbDescriptionPath, 'utf8')
         }
 
+        if (verbObject.parameters) {
+          verbObject.parameters = verbObject.parameters.map(parameter => {
+            delete parameter.example
+            return parameter
+          })
+        }
+
         if (fs.existsSync(verbExamplePath)) {
           const example = require(verbExamplePath)
           if (wrapExamples) {
