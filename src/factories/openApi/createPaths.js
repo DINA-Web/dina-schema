@@ -12,59 +12,95 @@ const getDescription = ({ verbObject, verbPath }) => {
   return verbObject.description
 }
 
-const buildVerb = ({ basePath, verbName, wrapExamples }) => {
-  const verbPath = path.join(basePath, verbName)
-  const verbExamplePath = path.join(verbPath, 'example.json')
+// const getExample = ({ verbObject, verbPath }) => {
+//   const verbExamplePath = path.join(verbPath, 'example.json')
 
-  const verbObject = require(verbPath)
-  verbObject.description = getDescription({
-    verbObject,
-    verbPath,
+//   if (fs.existsSync(verbExamplePath)) {
+//     return require(verbExamplePath)
+//   }
+//   return verbObject.example // not really but for now
+// }
+
+const buildSchema = ({ rawResponseObject }) => {
+  if (rawResponseObject.schema) {
+    return rawResponseObject.schema
+  }
+
+  const { $model, $modelType, $type } = rawResponseObject.$schema || {}
+
+  if ($type) {
+    if ($type === 'arrayResponse') {
+      const model = $model
+      const modelType = $modelType
+      return buildArrayResponseSchema(modelType, model)
+    }
+
+    if ($type === 'objectResponse') {
+      const model = $model
+      const modelType = $modelType
+      return buildObjectResponseSchema(modelType, model)
+    }
+  }
+  return null
+}
+
+const buildResponse = ({ statusCode, rawResponseObject }) => {
+  if (statusCode !== '200') {
+    return rawResponseObject
+  }
+
+  const schema = buildSchema({
+    rawResponseObject,
   })
 
-  if (fs.existsSync(verbExamplePath)) {
-    const example = require(verbExamplePath)
-    if (wrapExamples) {
-      verbObject.responses['200'].examples = {
-        'application/json': example,
-      }
-    } else {
-      verbObject.responses['200'].example = example
-    }
-  }
-
-  if (verbObject.responses['200'].$schema) {
-    if (verbObject.responses['200'].$schema.$type === 'arrayResponse') {
-      const model = verbObject.responses['200'].$schema.$model
-      const modelType = verbObject.responses['200'].$schema.$modelType
-      verbObject.responses['200'].schema = buildArrayResponseSchema(
-        modelType,
-        model
-      )
-    }
-
-    if (verbObject.responses['200'].$schema.$type === 'objectResponse') {
-      const model = verbObject.responses['200'].$schema.$model
-      const modelType = verbObject.responses['200'].$schema.$modelType
-      verbObject.responses['200'].schema = buildObjectResponseSchema(
-        modelType,
-        model
-      )
-    }
-
-    delete verbObject.responses['200'].$schema
-  }
-  verbObject.responses['200'].content = {
-    'application/json': {
-      schema: verbObject.responses['200'].schema,
+  const respose = {
+    ...rawResponseObject,
+    content: {
+      'application/json': {
+        schema,
+      },
     },
   }
-  delete verbObject.responses['200'].schema
+  delete respose.schema
+  return respose
+}
+
+const buildResponses = ({ verbObject }) => {
+  const rawResponses = verbObject.responses
+  return Object.keys(rawResponses).reduce((responses, statusCode) => {
+    const rawResponseObject = rawResponses[statusCode]
+    return {
+      ...responses,
+      [statusCode]: buildResponse({
+        rawResponseObject,
+        statusCode,
+      }),
+    }
+  }, {})
+}
+
+const buildVerb = ({ basePath, verbName }) => {
+  const verbPath = path.join(basePath, verbName)
+
+  let verbObject = require(verbPath)
+  verbObject = {
+    ...verbObject,
+    description: getDescription({
+      verbObject,
+      verbPath,
+    }),
+  }
+
+  verbObject = {
+    ...verbObject,
+    responses: buildResponses({ verbObject }),
+  }
+
   return verbObject
 }
 
 module.exports = function createPaths(
-  { wrapExamples = true, referenceRoot = '#/definitions/' } = {}
+  { referenceRoot = '#/definitions/' } = {}
 ) {
   const pathsPath = path.join(__dirname, '../', '../', 'specification', 'paths')
   const files = fs.readdirSync(pathsPath)
@@ -92,7 +128,6 @@ module.exports = function createPaths(
       const verb = buildVerb({
         basePath: fullPath,
         verbName,
-        wrapExamples,
       })
       obj[verbName] = verb
       return obj
