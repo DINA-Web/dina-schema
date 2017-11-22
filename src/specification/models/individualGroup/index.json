@@ -2,32 +2,24 @@
   "additionalProperties": true,
   "description": "This is a description",
   "properties": {
-    "id": { "type": "integer" },
-    "version": { "type": "integer" },
-    "physicalUnits": {
-      "type": "array",
-      "items": {
-        "$ref": "__ROOT__physicalUnit"
-      }
-    },
-    "identifications": {
-      "type": "array",
-      "items": {
-        "$ref": "__ROOT__identification"
-      }
-    },
-    "occurances": {
-      "type": "array",
-      "items": {
-        "$ref": "__ROOT__occurance"
-      }
-    },
     "featureObservations": {
       "type": "array",
-      "items": {
-        "$ref": "__ROOT__featureObservation"
-      }
-    }
+      "items": { "$ref": "__ROOT__featureObservation" }
+    },
+    "id": { "type": "integer" },
+    "identifications": {
+      "type": "array",
+      "items": { "$ref": "__ROOT__identification" }
+    },
+    "occurrences": {
+      "type": "array",
+      "items": { "$ref": "__ROOT__occurrence" }
+    },
+    "physicalUnits": {
+      "type": "array",
+      "items": { "$ref": "__ROOT__physicalUnit" }
+    },
+    "version": { "type": "integer" }
   },
   "required": ["id"]
 }
