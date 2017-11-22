@@ -1,7 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-
-const servers = require('../../specification/servers')
+const serverMap = require('../../specification/servers')
 
 module.exports = function createBase(config, packageJson) {
   const descriptionPath = path.join(
@@ -11,6 +10,10 @@ module.exports = function createBase(config, packageJson) {
     'specification',
     'description.md'
   )
+
+  const servers = Object.keys(serverMap).map(key => {
+    return serverMap[key]
+  })
 
   const base = Object.assign(
     {
