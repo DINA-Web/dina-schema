@@ -2,7 +2,10 @@
   "additionalProperties": false,
   "properties": {
     "id": { "type": "integer" },
-    "featureObservationTypeName": { "type": "string" }
+    "featureObservationTypeName": {
+      "type": "string",
+      "enum": ["age", "ageStage", "sex"]
+    }
   },
   "required": ["id", "featureObservationTypeName"]
 }

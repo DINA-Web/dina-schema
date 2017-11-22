@@ -1,12 +1,12 @@
 {
   "additionalProperties": false,
   "properties": {
-    "appliesToIndividualGroupId": { "type": "integer" },
-    "individualGroup": {
-      "$ref": "__ROOT__individualGroup"
-    },
     "id": { "type": "integer" },
-    "identificationText": { "type": "string" },
+    "identificationText": {
+      "type": "string",
+      "example": "Sorex minutus minutus"
+    },
+    "individualGroup": { "$ref": "__ROOT__individualGroup" },
     "version": { "type": "integer" }
   },
   "required": ["identificationText"]

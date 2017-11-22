@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "collectorsText": {
+      "type": "string",
+      "example": "Bergström, U",
+      "description": "Name of the collector"
+    },
+    "dayEnd": { "type": "integer", "example": 2 },
+    "dayStart": { "type": "integer", "example": 30 },
+    "expeditionText": { "type": "string", "example": "Vega Expedition" },
+    "id": { "type": "integer" },
+    "individualGroup": { "$ref": "__ROOT__individualGroup" },
+    "localityText": {
+      "type": "string",
+      "example": "Hälsingland, Enånger, Boda"
+    },
+    "monthEnd": { "type": "integer", "example": 3 },
+    "monthStart": { "type": "integer", "example": 2 },
+    "occurrenceDateText": { "type": "string", "example": "Before 1800" },
+    "physicalUnits": {
+      "type": "array",
+      "items": { "$ref": "__ROOT__physicalUnit" }
+    },
+    "yearEnd": { "type": "integer", "example": 1991 },
+    "yearStart": { "type": "integer", "example": 1990 }
+  },
+  "required": ["id"]
+}

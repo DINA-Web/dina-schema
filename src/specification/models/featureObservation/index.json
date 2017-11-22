@@ -1,10 +1,10 @@
 {
   "additionalProperties": false,
   "properties": {
-    "featureObservationText": { "type": "string" },
-    "id": { "type": "integer" },
+    "featureObservationText": { "type": "string", "example": "10 years" },
     "featureObservationType": { "$ref": "__ROOT__featureObservationType" },
-    "version": { "type": "integer" }
+    "id": { "type": "integer" },
+    "methodText": { "type": "string", "example": "Known age" }
   },
   "required": ["featureObservationText"]
 }
