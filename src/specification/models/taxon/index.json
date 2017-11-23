@@ -1,0 +1,159 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "parent": {
+      "type": "object", 
+      "properties": {
+        "id": {
+          "type": "string", 
+          "title": "The Id Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "scientific_name": {
+          "type": "string", 
+          "title": "The Scientific_name Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "rank": {
+          "type": "string", 
+          "title": "The Rank Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }
+      }, 
+      "required": [
+        "id", 
+        "scientific_name", 
+        "rank"
+      ]
+    }, 
+    "rubin_number": {
+      "type": "string", 
+      "title": "The Rubin_number Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }, 
+    "higherTaxa": {
+      "type": "object", 
+      "properties": {
+        "order": {
+          "type": "string", 
+          "title": "The Order Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "suborder": {
+          "type": "string", 
+          "title": "The Suborder Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "infraorder": {
+          "type": "string", 
+          "title": "The Infraorder Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "superfamily": {
+          "type": "string", 
+          "title": "The Superfamily Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "family": {
+          "type": "string", 
+          "title": "The Family Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "subfamily": {
+          "type": "string", 
+          "title": "The Subfamily Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "tribe": {
+          "type": "string", 
+          "title": "The Tribe Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "genus": {
+          "type": "string", 
+          "title": "The Genus Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }, 
+        "subgenus": {
+          "type": "string", 
+          "title": "The Subgenus Schema.", 
+          "description": "An explanation about the purpose of this instance.", 
+          "default": ""
+        }
+      }
+    }, 
+    "rank": {
+      "type": "string", 
+      "title": "The Rank Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }, 
+    "scientific_name": {
+      "type": "string", 
+      "title": "The Scientific_name Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }, 
+    "author": {
+      "type": "string", 
+      "title": "The Author Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }, 
+    "author_date": {
+      "type": "string", 
+      "title": "The Author_date Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }, 
+    "valid_name": {
+      "type": "boolean", 
+      "title": "The Valid_name Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": false
+    }, 
+    "verncular_names": {
+      "type": "object", 
+      "properties": {
+        "en": {
+          "type": "array", 
+          "items": {
+            "type": "string", 
+            "title": "The 0 Schema.", 
+            "description": "An explanation about the purpose of this instance.", 
+            "default": ""
+          }
+        }
+      }
+    }, 
+    "synonyms": {
+      "type": "string", 
+      "title": "The Synonyms Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }, 
+    "sort_order": {
+      "type": "string", 
+      "title": "The Sort_order Schema.", 
+      "description": "An explanation about the purpose of this instance.", 
+      "default": ""
+    }
+  }, 
+  "required": [
+    "rank", 
+    "scientific_name", 
+    "valid_name"
+  ]
+}
