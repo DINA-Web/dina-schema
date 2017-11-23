@@ -12,6 +12,15 @@
       "required": true,
       "type": "string",
       "example": "Alces alces"
+    },
+    {
+      "name": "search_type",
+      "in": "query",
+      "description": "Search type - exact (default) or partial",
+      "required": false,
+      "type": "string",
+      "enum": ["exact", "partial"],
+      "example": "exact"
     }
   ],
   "responses": {

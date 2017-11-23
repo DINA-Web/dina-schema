@@ -6,21 +6,15 @@
       "properties": {
         "id": {
           "type": "string", 
-          "title": "The Id Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent taxon identifier"
         }, 
         "scientific_name": {
           "type": "string", 
-          "title": "The Scientific_name Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent taxon scientific name"
         }, 
         "rank": {
           "type": "string", 
-          "title": "The Rank Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent taxon rank"
         }
       }, 
       "required": [
@@ -31,97 +25,68 @@
     }, 
     "rubin_number": {
       "type": "string", 
-      "title": "The Rubin_number Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "Rubin storage number for the taxon"
     }, 
     "higherTaxa": {
       "type": "object", 
       "properties": {
         "order": {
           "type": "string", 
-          "title": "The Order Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent order"
         }, 
         "suborder": {
           "type": "string", 
-          "title": "The Suborder Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent suborder"
         }, 
         "infraorder": {
           "type": "string", 
-          "title": "The Infraorder Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent infraorder"
         }, 
         "superfamily": {
           "type": "string", 
-          "title": "The Superfamily Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent superfamily"
         }, 
         "family": {
           "type": "string", 
-          "title": "The Family Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent family"
         }, 
         "subfamily": {
           "type": "string", 
-          "title": "The Subfamily Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent subfamily"
         }, 
         "tribe": {
           "type": "string", 
-          "title": "The Tribe Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent tribe"
         }, 
         "genus": {
           "type": "string", 
-          "title": "The Genus Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent genus"
         }, 
         "subgenus": {
           "type": "string", 
-          "title": "The Subgenus Schema.", 
-          "description": "An explanation about the purpose of this instance.", 
-          "default": ""
+          "description": "Parent subgenus"
         }
       }
     }, 
     "rank": {
       "type": "string", 
-      "title": "The Rank Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "Taxon rank"
     }, 
     "scientific_name": {
       "type": "string", 
-      "title": "The Scientific_name Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "Taxon scientific name, binomial if species"
     }, 
     "author": {
       "type": "string", 
-      "title": "The Author Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "Taxon author without the year"
     }, 
     "author_date": {
       "type": "string", 
-      "title": "The Author_date Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "Taxon author year"
     }, 
     "valid_name": {
       "type": "boolean", 
-      "title": "The Valid_name Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Is the name taxonomically valid", 
       "default": false
     }, 
     "verncular_names": {
@@ -131,24 +96,18 @@
           "type": "array", 
           "items": {
             "type": "string", 
-            "title": "The 0 Schema.", 
-            "description": "An explanation about the purpose of this instance.", 
-            "default": ""
+            "description": "Vernacular (common) English names for the taxon"
           }
         }
       }
     }, 
     "synonyms": {
       "type": "string", 
-      "title": "The Synonyms Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "List of synonyms as free-form text"
     }, 
     "sort_order": {
       "type": "string", 
-      "title": "The Sort_order Schema.", 
-      "description": "An explanation about the purpose of this instance.", 
-      "default": ""
+      "description": "Taxonomical sort order code from Mammal Species of the World list"
     }
   }, 
   "required": [
