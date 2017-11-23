@@ -1,5 +1,5 @@
 {
-  "additionalProperties": true,
+  "additionalProperties": false,
   "description": "This is a description",
   "properties": {
     "featureObservations": {
@@ -20,6 +20,5 @@
       "items": { "$ref": "__ROOT__physicalUnit" }
     },
     "version": { "type": "integer" }
-  },
-  "required": ["id"]
+  }
 }
