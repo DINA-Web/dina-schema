@@ -1,7 +1,7 @@
 {
   "additionalProperties": false,
   "properties": {
-    "catalogNumber": { "type": "string", "example": "584028" },
+    "catalogNumber": { "type": "string", "example": "584028", "minLength": 6 },
     "id": { "type": "integer" },
     "physicalUnits": {
       "type": "array",
