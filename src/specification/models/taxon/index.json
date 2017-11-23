@@ -6,17 +6,17 @@
       "properties": {
         "id": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent taxon identifier", 
           "default": ""
         }, 
         "scientific_name": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent taxon scientific name", 
           "default": ""
         }, 
         "rank": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent taxon rank", 
           "default": ""
         }
       }, 
@@ -28,7 +28,7 @@
     }, 
     "rubin_number": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Rubin storage number for the taxon", 
       "default": ""
     }, 
     "higherTaxa": {
@@ -36,74 +36,74 @@
       "properties": {
         "order": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent order", 
           "default": ""
         }, 
         "suborder": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent suborder", 
           "default": ""
         }, 
         "infraorder": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent infraorder", 
           "default": ""
         }, 
         "superfamily": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent superfamily", 
           "default": ""
         }, 
         "family": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent family", 
           "default": ""
         }, 
         "subfamily": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent subfamily", 
           "default": ""
         }, 
         "tribe": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent tribe", 
           "default": ""
         }, 
         "genus": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent genus", 
           "default": ""
         }, 
         "subgenus": {
           "type": "string", 
-          "description": "An explanation about the purpose of this instance.", 
+          "description": "Parent subgenus", 
           "default": ""
         }
       }
     }, 
     "rank": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Taxon rank", 
       "default": ""
     }, 
     "scientific_name": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Taxon scientific name, binomial if species", 
       "default": ""
     }, 
     "author": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Taxon author without the year", 
       "default": ""
     }, 
     "author_date": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Taxon author year", 
       "default": ""
     }, 
     "valid_name": {
       "type": "boolean", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Is the name taxonomically valid", 
       "default": false
     }, 
     "verncular_names": {
@@ -113,7 +113,7 @@
           "type": "array", 
           "items": {
             "type": "string", 
-            "description": "An explanation about the purpose of this instance.", 
+            "description": "Vernacular (common) English names for the taxon", 
             "default": ""
           }
         }
@@ -121,12 +121,12 @@
     }, 
     "synonyms": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "List of synonyms as free-form text", 
       "default": ""
     }, 
     "sort_order": {
       "type": "string", 
-      "description": "An explanation about the purpose of this instance.", 
+      "description": "Taxonomical sort order code from Mammal Species of the World list", 
       "default": ""
     }
   }, 
