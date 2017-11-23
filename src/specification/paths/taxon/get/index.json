@@ -1,0 +1,30 @@
+{
+  "tags": ["slim-taxonomy-api"],
+  "summary": "Fetches taxa by name",
+  "description": "",
+  "operationId": "getTaxaByName",
+  "produces": ["application/json"],
+  "parameters": [
+    {
+      "name": "filter[name]",
+      "in": "query",
+      "description": "Taxon name - accepted scientific, synonym or vernacular name",
+      "required": true,
+      "type": "string",
+      "example": "Alces alces"
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "successful operation",
+      "$schema": {
+        "$model": "__ROOT__taxon",
+        "$modelType": "taxon",
+        "$type": "arrayResponse"
+      }
+    },
+    "400": {
+      "description": "Invalid status value"
+    }
+  }
+}
