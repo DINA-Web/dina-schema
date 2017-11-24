@@ -1,0 +1,31 @@
+{
+  "tags": ["collections-api"],
+  "summary": "Update an individual group",
+  "description": "",
+  "operationId": "updateIndividualGroup",
+  "produces": ["application/json"],
+  "parameters": [
+    {
+      "in": "body",
+      "name": "body",
+      "description": "",
+      "required": true,
+      "schema": {
+        "$ref": "__ROOT__individualGroup"
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "successful operation",
+      "$schema": {
+        "$model": "__ROOT__individualGroup",
+        "$modelType": "individualGroup",
+        "$type": "objectResponse"
+      }
+    },
+    "400": {
+      "description": "Invalid status value"
+    }
+  }
+}
