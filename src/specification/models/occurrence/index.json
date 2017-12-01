@@ -24,6 +24,5 @@
     },
     "yearEnd": { "type": "integer", "example": 1991 },
     "yearStart": { "type": "integer", "example": 1990 }
-  },
-  "required": ["id"]
+  }
 }
