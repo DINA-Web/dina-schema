@@ -15,7 +15,7 @@ module.exports = function createBase(config, packageJson) {
 
   base.swagger = '2.0'
   base.host = 'alpha-api-docs.dina-web.net'
-  base.basePath = '/collections/api/v01/'
+  base.basePath = '/'
   base.schemes = ['http']
 
   base.info.description = description
