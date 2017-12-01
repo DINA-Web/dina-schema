@@ -6,6 +6,5 @@
       "type": "string",
       "enum": ["age", "ageStage", "sex"]
     }
-  },
-  "required": ["id", "featureObservationTypeName"]
+  }
 }
