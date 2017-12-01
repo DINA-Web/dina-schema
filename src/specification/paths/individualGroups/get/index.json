@@ -9,9 +9,17 @@
       "name": "filter[catalogNumber]",
       "in": "query",
       "description": "catalog number used to filter individualGroups",
-      "required": true,
+      "required": false,
       "type": "string",
-      "example": "some-catalog-number"
+      "example": "123456"
+    },
+    {
+      "name": "filter[identifiedTaxonNameStandardized]",
+      "in": "query",
+      "description": "Standardized taxon name used to filter individualGroups",
+      "required": false,
+      "type": "string",
+      "example": "Chironectes minimus"
     },
     {
       "name": "include",
