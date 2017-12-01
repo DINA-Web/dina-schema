@@ -5,6 +5,5 @@
     "featureObservationType": { "$ref": "__ROOT__featureObservationType" },
     "id": { "type": "integer" },
     "methodText": { "type": "string", "example": "Known age" }
-  },
-  "required": ["featureObservationText"]
+  }
 }
