@@ -1,17 +1,25 @@
 {
   "tags": ["collections-api"],
-  "summary": "Update an individual group",
+  "summary": "Update an individual group by id",
   "description": "",
   "operationId": "updateIndividualGroup",
   "produces": ["application/json"],
   "parameters": [
+    {
+      "name": "id",
+      "in": "path",
+      "description": "Individual group id",
+      "required": true,
+      "type": "integer",
+      "example": 1
+    },
     {
       "in": "body",
       "name": "body",
       "description": "",
       "required": true,
       "schema": {
-        "$ref": "__ROOT__individualGroup"
+        "$ref": "__ROOT__updateIndividualGroupRequest"
       }
     }
   ],
