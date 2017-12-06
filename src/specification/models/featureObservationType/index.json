@@ -4,7 +4,7 @@
     "id": { "type": "integer" },
     "featureObservationTypeName": {
       "type": "string",
-      "enum": ["age", "ageStage", "sex"]
+      "enum": ["age", "ageStage", "conditionAtCollecting", "sex"]
     }
   }
 }
