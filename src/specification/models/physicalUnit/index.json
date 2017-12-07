@@ -9,7 +9,6 @@
     "id": { "type": "integer" },
     "individualGroup": { "$ref": "__ROOT__individualGroup" },
     "normalStorageLocationText": { "type": "string" },
-    "occurrence": { "$ref": "__ROOT__occurrence" },
     "physicalUnitText": {
       "type": "string",
       "example": "Skin complete, prepared"
