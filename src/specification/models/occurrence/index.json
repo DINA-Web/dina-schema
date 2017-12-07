@@ -20,10 +20,6 @@
     "monthEnd": { "type": "integer", "example": 3 },
     "monthStart": { "type": "integer", "example": 2 },
     "occurrenceDateText": { "type": "string", "example": "Before 1800" },
-    "physicalUnits": {
-      "type": "array",
-      "items": { "$ref": "__ROOT__physicalUnit" }
-    },
     "yearEnd": { "type": "integer", "example": 1991 },
     "yearStart": { "type": "integer", "example": 1990 }
   }
