@@ -8,7 +8,7 @@
     "catalogedUnit": { "$ref": "__ROOT__catalogedUnit" },
     "id": { "type": "integer" },
     "individualGroup": { "$ref": "__ROOT__individualGroup" },
-    "normalStorageLocation": { "type": "string" },
+    "normalStorageLocationText": { "type": "string" },
     "occurrence": { "$ref": "__ROOT__occurrence" },
     "physicalUnitText": {
       "type": "string",

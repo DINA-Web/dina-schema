@@ -2,6 +2,8 @@
   "additionalProperties": false,
   "description": "This is a description",
   "properties": {
+    "causeOfDeathStandardized": { "type": "string" },
+    "causeOfDeathText": { "type": "string" },
     "featureObservations": {
       "type": "array",
       "items": { "$ref": "__ROOT__featureObservation" }
@@ -15,6 +17,7 @@
       "type": "array",
       "items": { "$ref": "__ROOT__occurrence" }
     },
+    "originStandardized": { "type": "string" },
     "physicalUnits": {
       "type": "array",
       "items": { "$ref": "__ROOT__physicalUnit" }

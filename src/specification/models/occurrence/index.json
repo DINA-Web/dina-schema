@@ -8,9 +8,11 @@
     },
     "dayEnd": { "type": "integer", "example": 2 },
     "dayStart": { "type": "integer", "example": 30 },
+    "establishmentMeansStandardized": { "type": "string" },
     "expeditionText": { "type": "string", "example": "Vega Expedition" },
     "id": { "type": "integer" },
     "individualGroup": { "$ref": "__ROOT__individualGroup" },
+    "isDeathEvent": { "type": "boolean" },
     "localityText": {
       "type": "string",
       "example": "Hälsingland, Enånger, Boda"
