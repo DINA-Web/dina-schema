@@ -10,10 +10,26 @@ const paths = createPaths({
 })
 const tags = createTags()
 
-const definitions = createDefinitions({
-  attachIds: false,
+const modelDefinitions = createDefinitions({
   referenceRoot: '#/definitions/',
+  type: 'models',
 })
+
+const responseDefinitions = createDefinitions({
+  referenceRoot: '#/definitions/',
+  type: 'responses',
+})
+
+const requestDefinitions = createDefinitions({
+  referenceRoot: '#/definitions/',
+  type: 'requests',
+})
+
+const definitions = {
+  ...modelDefinitions,
+  ...responseDefinitions,
+  ...requestDefinitions,
+}
 
 module.exports = function createSwaggerSpecification(config = sampleConfig) {
   const base = createBase(

@@ -7,10 +7,8 @@
   "responses": {
     "200": {
       "description": "successful operation",
-      "$schema": {
-        "$model": "__ROOT__getUserResponse",
-        "$modelType": "individualGroup",
-        "$type": "arrayResponse"
+      "schema": {
+        "$ref": "__ROOT__getUserResponse"
       }
     },
     "400": {
