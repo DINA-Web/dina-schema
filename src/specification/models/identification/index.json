@@ -40,6 +40,5 @@
       "example": true
     },
     "version": { "type": "integer" }
-  },
-  "required": ["identificationText"]
+  }
 }
