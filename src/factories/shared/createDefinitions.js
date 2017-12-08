@@ -3,20 +3,23 @@ const fs = require('fs')
 const interpolate = require('./interpolate')
 
 module.exports = function createDefinitions(
-  { attachIds = false, referenceRoot = '#/definitions/' } = {}
+  { attachIds = false, referenceRoot = '#/definitions/', type = 'models' } = {}
 ) {
   const definitionsPath = path.join(
     __dirname,
     '../',
     '../',
     'specification',
-    'models'
+    type
   )
+
   const files = fs.readdirSync(definitionsPath)
   const result = files.reduce((definitions, fileName) => {
+    if (fileName[0] === '.') {
+      return definitions
+    }
     const fullPath = path.join(definitionsPath, fileName)
     const definition = require(fullPath)
-
     const name = fileName.replace('.json', '')
     if (attachIds) {
       definition.id = name

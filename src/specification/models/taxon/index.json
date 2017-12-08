@@ -2,117 +2,117 @@
   "additionalProperties": false,
   "properties": {
     "parent": {
-      "type": "object", 
+      "type": "object",
       "properties": {
         "id": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent taxon identifier"
-        }, 
+        },
         "scientific_name": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent taxon scientific name"
-        }, 
+        },
         "rank": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent taxon rank"
         }
-      }, 
+      },
       "required": [
-        "id", 
-        "scientific_name", 
+        "id",
+        "scientific_name",
         "rank"
       ]
-    }, 
+    },
     "rubin_number": {
-      "type": "string", 
+      "type": "string",
       "description": "Rubin storage number for the taxon"
-    }, 
+    },
     "higherTaxa": {
-      "type": "object", 
+      "type": "object",
       "properties": {
         "order": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent order"
-        }, 
+        },
         "suborder": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent suborder"
-        }, 
+        },
         "infraorder": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent infraorder"
-        }, 
+        },
         "superfamily": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent superfamily"
-        }, 
+        },
         "family": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent family"
-        }, 
+        },
         "subfamily": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent subfamily"
-        }, 
+        },
         "tribe": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent tribe"
-        }, 
+        },
         "genus": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent genus"
-        }, 
+        },
         "subgenus": {
-          "type": "string", 
+          "type": "string",
           "description": "Parent subgenus"
         }
       }
-    }, 
+    },
     "rank": {
-      "type": "string", 
+      "type": "string",
       "description": "Taxon rank"
-    }, 
+    },
     "scientific_name": {
-      "type": "string", 
+      "type": "string",
       "description": "Taxon scientific name, binomial if species"
-    }, 
+    },
     "author": {
-      "type": "string", 
+      "type": "string",
       "description": "Taxon author without the year"
-    }, 
+    },
     "author_date": {
-      "type": "string", 
+      "type": "string",
       "description": "Taxon author year"
-    }, 
+    },
     "valid_name": {
-      "type": "boolean", 
-      "description": "Is the name taxonomically valid", 
+      "type": "boolean",
+      "description": "Is the name taxonomically valid",
       "default": false
-    }, 
+    },
     "verncular_names": {
-      "type": "object", 
+      "type": "object",
       "properties": {
         "en": {
-          "type": "array", 
+          "type": "array",
           "items": {
-            "type": "string", 
+            "type": "string",
             "description": "Vernacular (common) English names for the taxon"
           }
         }
       }
-    }, 
+    },
     "synonyms": {
-      "type": "string", 
+      "type": "string",
       "description": "List of synonyms as free-form text"
-    }, 
+    },
     "sort_order": {
-      "type": "string", 
+      "type": "string",
       "description": "Taxonomical sort order code from Mammal Species of the World list"
     }
-  }, 
+  },
   "required": [
-    "rank", 
-    "scientific_name", 
+    "rank",
+    "scientific_name",
     "valid_name"
   ]
 }

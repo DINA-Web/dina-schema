@@ -18,11 +18,7 @@
   "responses": {
     "200": {
       "description": "successful operation",
-      "$schema": {
-        "$model": "__ROOT__individualGroup",
-        "$modelType": "individualGroup",
-        "$type": "objectResponse"
-      }
+      "schema": { "$ref": "__ROOT__createIndividualGroupResponse" }
     },
     "400": {
       "description": "Invalid status value"
