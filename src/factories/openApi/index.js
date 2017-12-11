@@ -1,54 +1,32 @@
-const createBase = require('./createBase')
-const createPaths = require('./createPaths')
-const createTags = require('../shared/createTags')
-const createDefinitions = require('../shared/createDefinitions')
-const sampleConfig = require('../../sample.config.json')
-const packageJson = require('../../../package.json')
+/* eslint-disable sort-keys */
+const createOpenApiInfo = require('./createOpenApiInfo')
+const createOpenApiServers = require('./createOpenApiServers')
+const createOpenApiSecurity = require('./createOpenApiSecurity')
+const createOpenApiTags = require('./createOpenApiTags')
+const createOpenApiPaths = require('./createOpenApiPaths')
+const createOpenApiComponents = require('./createOpenApiComponents')
 
-module.exports = function createSwaggerSpecification(config = sampleConfig) {
-  const base = createBase({ ...config }, { ...packageJson })
-  const referenceRoot = '#/components/schemas/'
-  const tags = createTags()
-  const paths = createPaths({
-    referenceRoot,
-    wrapExamples: false,
-  })
-
-  const modelDefinitions = createDefinitions({
-    attachIds: false,
-    referenceRoot,
-    type: 'models',
-  })
-
-  const responseDefinitions = createDefinitions({
-    attachIds: false,
-    referenceRoot,
-    type: 'responses',
-  })
-
-  const requestDefinitions = createDefinitions({
-    attachIds: false,
-    referenceRoot,
-    type: 'requests',
-  })
-
-  const definitions = {
-    ...modelDefinitions,
-    ...responseDefinitions,
-    ...requestDefinitions,
+module.exports = function createOpenApi({
+  endpoints,
+  errors,
+  info,
+  models,
+  parameters,
+  apis,
+  security,
+}) {
+  return {
+    openapi: '3.0.0',
+    info: createOpenApiInfo(info),
+    servers: createOpenApiServers(apis),
+    security: createOpenApiSecurity(security),
+    tags: createOpenApiTags({ apis }),
+    paths: createOpenApiPaths(endpoints),
+    components: createOpenApiComponents({
+      endpoints,
+      models,
+      parameters,
+      errors,
+    }),
   }
-
-  base.tags = tags
-  base.paths = paths
-  base.components = {
-    schemas: definitions,
-    securitySchemes: {
-      api_key: {
-        in: 'header',
-        name: 'api_key',
-        type: 'apiKey',
-      },
-    },
-  }
-  return base
 }

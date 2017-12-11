@@ -1,0 +1,25 @@
+{
+  "description": "this is a desc",
+  "content": {
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1234
+          },
+          "type": {
+            "type": "string",
+            "default": "individualGroup"
+          },
+          "attributes": {
+            "$ref": "__ROOT__individualGroup"
+          }
+        }
+      }
+    }
+  }
+}

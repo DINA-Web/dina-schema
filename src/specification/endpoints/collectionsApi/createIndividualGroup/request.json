@@ -1,0 +1,40 @@
+{
+  "description": "this is a desc for request",
+  "body": {
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "individualGroup",
+            "default": "individualGroup"
+          },
+          "attributes": {
+            "$ref": "__ROOT__individualGroup"
+          },
+          "additionalData": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "catalogedUnit",
+                  "example": "catalogedUnit"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "catalogNumber": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

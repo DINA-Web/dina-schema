@@ -1,43 +1,34 @@
-const createBase = require('./createBase')
-const createPaths = require('../shared/createPaths')
-const createTags = require('../shared/createTags')
-const createDefinitions = require('../shared/createDefinitions')
-const sampleConfig = require('../../sample.config.json')
-const packageJson = require('../../../package.json')
+/* eslint-disable sort-keys */
+const createSwaggerInfo = require('./createSwaggerInfo')
+const createSwaggerTags = require('./createSwaggerTags')
+const createSwaggerPaths = require('./createSwaggerPaths')
+const createSwaggerDefinitions = require('./createSwaggerDefinitions')
 
-const paths = createPaths({
-  wrapExamples: true,
-})
-const tags = createTags()
+module.exports = function createSwagger({
+  endpoints,
+  // errors,
+  info,
+  models,
+  // parameters,
+  apis,
+  // security,
+}) {
+  const definitions = createSwaggerDefinitions({
+    endpoints,
+    models,
+  })
 
-const modelDefinitions = createDefinitions({
-  referenceRoot: '#/definitions/',
-  type: 'models',
-})
+  return {
+    swagger: '2.0',
+    host: 'alpha-api-docs.dina-web.net',
+    basePath: '/',
+    schemes: ['http'],
 
-const responseDefinitions = createDefinitions({
-  referenceRoot: '#/definitions/',
-  type: 'responses',
-})
-
-const requestDefinitions = createDefinitions({
-  referenceRoot: '#/definitions/',
-  type: 'requests',
-})
-
-const definitions = {
-  ...modelDefinitions,
-  ...responseDefinitions,
-  ...requestDefinitions,
-}
-
-module.exports = function createSwaggerSpecification(config = sampleConfig) {
-  const base = createBase(
-    Object.assign({}, config),
-    Object.assign({}, packageJson)
-  )
-  base.tags = tags
-  base.paths = paths
-  base.definitions = definitions
-  return base
+    info: createSwaggerInfo(info),
+    tags: createSwaggerTags({ apis }),
+    definitions,
+    // servers: createSwaggerServers(apis),
+    // security: createSwaggerSecurity(security),
+    paths: createSwaggerPaths(endpoints),
+  }
 }
