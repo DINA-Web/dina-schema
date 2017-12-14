@@ -24,6 +24,10 @@
                   "default": "catalogedUnit",
                   "example": "catalogedUnit"
                 },
+                "id": {
+                  "type": "integer",
+                  "example": 1234
+                },
                 "attributes": {
                   "type": "object",
                   "properties": {
