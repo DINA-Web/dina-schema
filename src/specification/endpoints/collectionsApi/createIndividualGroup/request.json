@@ -2,6 +2,7 @@
   "description": "this is a desc for request",
   "body": {
     "additionalProperties": false,
+    "type": "object",
     "properties": {
       "data": {
         "type": "object",

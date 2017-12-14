@@ -2,6 +2,7 @@
   "description": "this is a desc",
   "content": {
     "additionalProperties": false,
+    "type": "object",
     "properties": {
       "data": {
         "additionalProperties": false,
