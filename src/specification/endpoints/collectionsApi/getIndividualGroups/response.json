@@ -14,6 +14,10 @@
               "type": "string",
               "default": "individualGroup"
             },
+            "id": {
+              "type": "integer",
+              "example": 1234
+            },
             "attributes": {
               "$ref": "__ROOT__individualGroup"
             }

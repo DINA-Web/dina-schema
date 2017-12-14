@@ -2,6 +2,7 @@
   "description": "this is a desc for request",
   "body": {
     "additionalProperties": false,
+    "type": "object",
     "properties": {
       "data": {
         "type": "object",
@@ -23,6 +24,10 @@
                   "type": "string",
                   "default": "catalogedUnit",
                   "example": "catalogedUnit"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": 1234
                 },
                 "attributes": {
                   "type": "object",

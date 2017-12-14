@@ -2,6 +2,7 @@
   "description": "this is a desc",
   "content": {
     "additionalProperties": true,
+    "type": "object",
     "properties": {
       "data": {
         "type": "array",
@@ -12,6 +13,10 @@
               "type": "string",
               "default": "taxon",
               "example": "taxon"
+            },
+            "id": {
+              "type": "integer",
+              "example": 1234
             },
             "attributes": {
               "$ref": "__ROOT__taxon"
