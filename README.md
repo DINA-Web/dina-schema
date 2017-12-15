@@ -3,7 +3,7 @@
 Dina schema contains our api documentation and json schemas for domain models.
 It builds swagger and openApi specification and domain models from
 ./src/specification to ./build. It also uses swagger and openApi specification
-to generate documentation
+to generate documentation currently available [here](https://alpha-api-docs.dina-web.net/?url=https://alpha-api-docs.dina-web.net/openApi.json&docExpansion=false&defaultModelRendering=model&defaultModelExpandDepth=0)
 
 ## Get started
 
