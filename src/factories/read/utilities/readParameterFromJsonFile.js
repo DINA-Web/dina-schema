@@ -11,10 +11,20 @@ module.exports = function readParameterFromJsonFile({
   basePath,
   parameterName,
   includeProperties = false,
+  modelType,
+  markdownFiles = ['description'],
 }) {
   let parameterJsonPath = path.join(basePath, `${parameterName}.json`)
   if (fs.existsSync(parameterJsonPath)) {
-    return require(parameterJsonPath)
+    const res = require(parameterJsonPath)
+    if (modelType) {
+      return {
+        ...res,
+        modelType,
+      }
+    }
+
+    return res
   }
 
   const parameterJsonFolderPath = path.join(basePath, `${parameterName}`)
@@ -26,23 +36,32 @@ module.exports = function readParameterFromJsonFile({
     parameterJsonPath = path.join(parameterJsonFolderPath, 'index.json')
     if (fs.existsSync(parameterJsonPath)) {
       let json = require(parameterJsonPath)
-      const description = readParameterFromMarkdownFile(
-        parameterJsonFolderPath,
-        'description'
-      )
-      if (description) {
+      if (modelType) {
         json = {
           ...json,
-          description,
+          modelType,
         }
       }
+      markdownFiles.forEach(markdownFile => {
+        const markdownFileContent = readParameterFromMarkdownFile(
+          parameterJsonFolderPath,
+          markdownFile
+        )
+
+        if (markdownFileContent) {
+          json = {
+            ...json,
+            [markdownFile]: markdownFileContent,
+          }
+        }
+      })
 
       if (includeProperties) {
         const fileNames = fs
           .readdirSync(parameterJsonFolderPath)
-          .filter(filaName => {
+          .filter(fileName => {
             return !['index.json', 'description.md', 'example.json'].includes(
-              filaName
+              fileName
             )
           })
 

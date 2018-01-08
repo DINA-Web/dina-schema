@@ -1,7 +1,11 @@
 const fs = require('fs')
 const readParameterFromJsonFile = require('./readParameterFromJsonFile')
 
-module.exports = function readJsonFromDirectory(directory, includeProperties) {
+module.exports = function readJsonFromDirectory({
+  directory,
+  includeProperties = false,
+  modelType,
+}) {
   if (!fs.existsSync(directory)) {
     return {}
   }
@@ -10,6 +14,7 @@ module.exports = function readJsonFromDirectory(directory, includeProperties) {
     const file = readParameterFromJsonFile({
       basePath: directory,
       includeProperties,
+      modelType,
       parameterName: fileName,
     })
 
