@@ -1,7 +1,12 @@
 const interpolate = require('../../utilities/interpolate')
 
 const createModel = model => {
-  return interpolate(model, '__ROOT__', '#/components/schemas/')
+  const cleanedModel = model
+  if (model.modelType) {
+    cleanedModel['x-modelType'] = model.modelType
+    delete cleanedModel.modelType
+  }
+  return interpolate(cleanedModel, '__ROOT__', '#/components/schemas/')
 }
 
 const createResponseObject = schema => {

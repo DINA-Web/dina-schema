@@ -1,0 +1,917 @@
+{
+  "swagger": "2.0",
+  "host": "alpha-api-docs.dina-web.net",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "title": "Dina api",
+    "contact": {
+      "email": "oberg.anton@gmail.com"
+    },
+    "license": {
+      "name": "GNU Affero General Public License",
+      "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version": "0.1.0",
+    "description": "This is a first draft of dina api documentation. It can either be viewed as an\n[Open api spec](https://alpha-api-docs.dina-web.net/?url=https://alpha-api-docs.dina-web.net/openApi.json&docExpansion=false&defaultModelRendering=model&defaultModelExpandDepth=0)\nor as a\n[Swagger spec](https://alpha-api-docs.dina-web.net/?url=https://alpha-api-docs.dina-web.net/swagger.json&docExpansion=false&defaultModelRendering=model&defaultModelExpandDepth=0)\n\nDescriptions like below can be written in markdown:\n\n* [Dina web](https://alpha-cm.dina-web.net/login)\n* [Dina web with mocks](https://alpha-cm-mock.dina-web.net/login)\n* [Dina style guilde](https://alpha-style.dina-web.net)\n",
+    "x-versionInfo": "# This is some version specific information\n"
+  },
+  "tags": [
+    {
+      "description": "Description of collections api\n",
+      "name": "collectionsApi"
+    },
+    {
+      "description": "Description of keycloak\n",
+      "name": "keycloak"
+    },
+    {
+      "description": "Description of slim taxonomy\n",
+      "name": "slimTaxonomyApi"
+    }
+  ],
+  "definitions": {
+    "catalogedUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "physicalUnits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/physicalUnit"
+          }
+        },
+        "publishRecord": {
+          "type": "boolean"
+        },
+        "remarks": {
+          "type": "string",
+          "example": "Some remarks"
+        },
+        "storedUnderTaxonName": {
+          "type": "string",
+          "example": "Sorex minutus"
+        },
+        "catalogNumber": {
+          "type": "string",
+          "example": "584028",
+          "minLength": 6,
+          "description": "Description for catalogNumber\n"
+        }
+      },
+      "required": [
+        "catalogNumber"
+      ],
+      "example": {
+        "id": 1234,
+        "storedUnderTaxonName": "mjau"
+      },
+      "x-modelType": "model"
+    },
+    "featureObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "featureObservationAgent": {
+          "type": "string",
+          "example": "Doe, J."
+        },
+        "featureObservationDate": {
+          "type": "string",
+          "example": "2017-12-12"
+        },
+        "featureObservationText": {
+          "type": "string",
+          "example": "10 years"
+        },
+        "featureObservationType": {
+          "$ref": "#/definitions/featureObservationType"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "methodText": {
+          "type": "string",
+          "example": "Known age"
+        }
+      },
+      "x-modelType": "model"
+    },
+    "featureObservationType": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "featureObservationTypeName": {
+          "type": "string",
+          "enum": [
+            "age",
+            "ageStage",
+            "conditionAtCollecting",
+            "sex"
+          ]
+        }
+      },
+      "x-modelType": "model"
+    },
+    "identification": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "identificationRemarks": {
+          "type": "string",
+          "example": "Some remarks"
+        },
+        "identificationText": {
+          "type": "string",
+          "example": "Sorex minutus, by Doe, J. on 1982-01-01"
+        },
+        "identifiedAsVerbatim": {
+          "type": "string",
+          "description": "In exactly the same words as were used originally"
+        },
+        "identifiedByAgentText": {
+          "type": "string",
+          "example": "Doe, J."
+        },
+        "identifiedDay": {
+          "type": "integer",
+          "example": 25
+        },
+        "identifiedMonth": {
+          "type": "integer",
+          "example": 12
+        },
+        "identifiedTaxonNameStandardized": {
+          "type": "string",
+          "example": "Chironectes minimus"
+        },
+        "identifiedYear": {
+          "type": "integer",
+          "example": 1981
+        },
+        "individualGroup": {
+          "$ref": "#/definitions/individualGroup"
+        },
+        "isCurrentIdentification": {
+          "type": "boolean",
+          "example": true
+        },
+        "version": {
+          "type": "integer"
+        }
+      },
+      "x-modelType": "model"
+    },
+    "individualGroup": {
+      "additionalProperties": false,
+      "description": "# This is a description in a markdown file\n",
+      "properties": {
+        "causeOfDeathStandardized": {
+          "type": "string"
+        },
+        "causeOfDeathText": {
+          "type": "string"
+        },
+        "featureObservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/featureObservation"
+          }
+        },
+        "id": {
+          "type": "integer"
+        },
+        "identifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/identification"
+          }
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/occurrence"
+          }
+        },
+        "originStandardized": {
+          "type": "string"
+        },
+        "physicalUnits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/physicalUnit"
+          }
+        },
+        "version": {
+          "type": "integer"
+        }
+      },
+      "x-modelType": "model"
+    },
+    "occurrence": {
+      "additionalProperties": false,
+      "properties": {
+        "collectorsText": {
+          "type": "string",
+          "example": "Bergström, U",
+          "description": "Name of the collector"
+        },
+        "dayEnd": {
+          "type": "integer",
+          "example": 2
+        },
+        "dayStart": {
+          "type": "integer",
+          "example": 30
+        },
+        "establishmentMeansStandardized": {
+          "type": "string"
+        },
+        "expeditionText": {
+          "type": "string",
+          "example": "Vega Expedition"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "individualGroup": {
+          "$ref": "#/definitions/individualGroup"
+        },
+        "isDeathEvent": {
+          "type": "boolean"
+        },
+        "localityText": {
+          "type": "string",
+          "example": "Hälsingland, Enånger, Boda"
+        },
+        "monthEnd": {
+          "type": "integer",
+          "example": 3
+        },
+        "monthStart": {
+          "type": "integer",
+          "example": 2
+        },
+        "occurrenceDateText": {
+          "type": "string",
+          "example": "Before 1800"
+        },
+        "yearEnd": {
+          "type": "integer",
+          "example": 1991
+        },
+        "yearStart": {
+          "type": "integer",
+          "example": 1990
+        }
+      },
+      "x-modelType": "model"
+    },
+    "physicalUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "alternateIdentifiersText": {
+          "type": "string",
+          "example": "Skin complete, prepared"
+        },
+        "catalogedUnit": {
+          "$ref": "#/definitions/catalogedUnit"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "individualGroup": {
+          "$ref": "#/definitions/individualGroup"
+        },
+        "normalStorageLocationText": {
+          "type": "string"
+        },
+        "physicalUnitText": {
+          "type": "string",
+          "example": "Skin complete, prepared"
+        }
+      },
+      "x-modelType": "model"
+    },
+    "taxon": {
+      "additionalProperties": false,
+      "properties": {
+        "parent": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Parent taxon identifier"
+            },
+            "scientific_name": {
+              "type": "string",
+              "description": "Parent taxon scientific name"
+            },
+            "rank": {
+              "type": "string",
+              "description": "Parent taxon rank"
+            }
+          },
+          "required": [
+            "id",
+            "scientific_name",
+            "rank"
+          ]
+        },
+        "rubin_number": {
+          "type": "string",
+          "description": "Rubin storage number for the taxon"
+        },
+        "higherTaxa": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "string",
+              "description": "Parent order"
+            },
+            "suborder": {
+              "type": "string",
+              "description": "Parent suborder"
+            },
+            "infraorder": {
+              "type": "string",
+              "description": "Parent infraorder"
+            },
+            "superfamily": {
+              "type": "string",
+              "description": "Parent superfamily"
+            },
+            "family": {
+              "type": "string",
+              "description": "Parent family"
+            },
+            "subfamily": {
+              "type": "string",
+              "description": "Parent subfamily"
+            },
+            "tribe": {
+              "type": "string",
+              "description": "Parent tribe"
+            },
+            "genus": {
+              "type": "string",
+              "description": "Parent genus"
+            },
+            "subgenus": {
+              "type": "string",
+              "description": "Parent subgenus"
+            }
+          }
+        },
+        "rank": {
+          "type": "string",
+          "description": "Taxon rank"
+        },
+        "scientific_name": {
+          "type": "string",
+          "description": "Taxon scientific name, binomial if species"
+        },
+        "author": {
+          "type": "string",
+          "description": "Taxon author without the year"
+        },
+        "author_date": {
+          "type": "string",
+          "description": "Taxon author year"
+        },
+        "valid_name": {
+          "type": "boolean",
+          "description": "Is the name taxonomically valid",
+          "default": false
+        },
+        "verncular_names": {
+          "type": "object",
+          "properties": {
+            "en": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Vernacular (common) English names for the taxon"
+              }
+            }
+          }
+        },
+        "synonyms": {
+          "type": "string",
+          "description": "List of synonyms as free-form text"
+        },
+        "sort_order": {
+          "type": "string",
+          "description": "Taxonomical sort order code from Mammal Species of the World list"
+        }
+      },
+      "required": [
+        "rank",
+        "scientific_name",
+        "valid_name"
+      ],
+      "x-modelType": "model"
+    },
+    "createIndividualGroupRequest": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "example": "individualGroup",
+              "default": "individualGroup"
+            },
+            "attributes": {
+              "$ref": "#/definitions/individualGroup"
+            },
+            "additionalData": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "default": "catalogedUnit",
+                    "example": "catalogedUnit"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "example": 1234
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "catalogNumber": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "updateIndividualGroupRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string",
+              "example": "individualGroup",
+              "default": "individualGroup"
+            },
+            "attributes": {
+              "$ref": "#/definitions/individualGroup"
+            }
+          }
+        }
+      }
+    },
+    "loginUserRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "client_id": {
+          "type": "string",
+          "example": "dina-reset"
+        },
+        "grant_type": {
+          "type": "string",
+          "example": "password"
+        },
+        "password": {
+          "type": "string",
+          "example": "xxxxx"
+        },
+        "username": {
+          "type": "string",
+          "example": "john doe"
+        }
+      },
+      "required": [
+        "client_id",
+        "grant_type",
+        "password",
+        "username"
+      ]
+    },
+    "createIndividualGroupResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1234
+            },
+            "type": {
+              "type": "string",
+              "default": "individualGroup"
+            },
+            "attributes": {
+              "$ref": "#/definitions/individualGroup"
+            }
+          }
+        }
+      }
+    },
+    "getIndividualGroupsResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "additionalProperties": false,
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "individualGroup"
+              },
+              "id": {
+                "type": "integer",
+                "example": 1234
+              },
+              "attributes": {
+                "$ref": "#/definitions/individualGroup"
+              }
+            }
+          }
+        }
+      }
+    },
+    "updateIndividualGroupResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1234
+            },
+            "type": {
+              "type": "string",
+              "example": "individualGroup"
+            },
+            "attributes": {
+              "$ref": "#/definitions/individualGroup"
+            }
+          }
+        }
+      }
+    },
+    "getUserResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "john.doe@example.com"
+        },
+        "family_name": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "given_name": {
+          "type": "string",
+          "example": "John"
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "preferred_username": {
+          "type": "string",
+          "example": "john doe"
+        },
+        "sub": {
+          "type": "string",
+          "example": "xxxx"
+        }
+      },
+      "required": [
+        "email",
+        "preferred_username"
+      ]
+    },
+    "loginUserResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "access_token": {
+          "type": "string",
+          "example": "xxxx"
+        },
+        "expires_in": {
+          "type": "integer",
+          "example": 300
+        },
+        "not-before-policy": {
+          "type": "integer",
+          "example": 0
+        },
+        "refresh_expires_in": {
+          "type": "integer",
+          "example": 1800
+        },
+        "refresh_token": {
+          "type": "string",
+          "example": "xxxx"
+        },
+        "session_state": {
+          "type": "string",
+          "example": "bearer"
+        },
+        "token_type": {
+          "type": "string",
+          "example": "xxxx"
+        }
+      },
+      "required": [
+        "access_token"
+      ]
+    },
+    "getTaxaByNameResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "taxon",
+                "example": "taxon"
+              },
+              "id": {
+                "type": "integer",
+                "example": 1234
+              },
+              "attributes": {
+                "$ref": "#/definitions/taxon"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getTaxonByIdResponse": {
+      "additionalProperties": true,
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1234
+            },
+            "type": {
+              "type": "string",
+              "default": "taxon"
+            },
+            "attributes": {
+              "$ref": "#/definitions/taxon"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/collections/api/v01/individualGroups": {
+      "post": {
+        "description": "This endpoint is for the moment used to register mammals in the mammal\nregistration form\n",
+        "operationId": "createIndividualGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "createIndividualGroupRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createIndividualGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/createIndividualGroupResponse"
+            }
+          }
+        },
+        "summary": "Create an individual group and a catalogUnit if not existing",
+        "tags": [
+          "collectionsApi"
+        ]
+      },
+      "get": {
+        "description": "Makes it possible to fetch an individualGroup based on\ncatalogedUnit.catalogNumber OR identification.identifiedTaxonNameStandardized\n\nMore information to come\n",
+        "operationId": "getIndividualGroups",
+        "parameters": [
+          {
+            "description": "catalog number used to filter individualGroups",
+            "in": "query",
+            "name": "filter[catalogNumber]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Standardized taxon name used to filter individualGroups",
+            "in": "query",
+            "name": "filter[identifiedTaxonNameStandardized]",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "sub models to include in a comma separated list",
+            "in": "query",
+            "name": "include",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getIndividualGroupsResponse"
+            }
+          }
+        },
+        "summary": "Finds individualGroups",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
+    "/collections/api/v01/individualGroups/{id}": {
+      "patch": {
+        "description": "This endpoint is for the moment used to edit mammals in the mammal specimen form\n",
+        "operationId": "updateIndividualGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "updateIndividualGroupRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateIndividualGroupRequest"
+            }
+          },
+          {
+            "description": "Individual group id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/updateIndividualGroupResponse"
+            }
+          }
+        },
+        "summary": "Update an individual group by id",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
+    "/auth/realms/dina/protocol/openid-connect/userInfo": {
+      "get": {
+        "operationId": "getUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getUserResponse"
+            }
+          }
+        },
+        "summary": "Gets user object",
+        "tags": [
+          "keycloak"
+        ]
+      }
+    },
+    "/auth/realms/dina/protocol/openid-connect/token": {
+      "post": {
+        "operationId": "loginUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "loginUserRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/loginUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/loginUserResponse"
+            }
+          }
+        },
+        "summary": "Gets user token",
+        "tags": [
+          "keycloak"
+        ]
+      }
+    },
+    "/taxon": {
+      "get": {
+        "description": "Fetches a taxon or several taxa.\n",
+        "operationId": "getTaxaByName",
+        "parameters": [
+          {
+            "description": "Taxon name - accepted scientific, synonym or vernacular name",
+            "in": "query",
+            "name": "filter[name]",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Search type - exact (default) or partial",
+            "in": "query",
+            "name": "search_type",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getTaxaByNameResponse"
+            }
+          }
+        },
+        "summary": "Fetches taxa by name",
+        "tags": [
+          "slimTaxonomyApi"
+        ]
+      }
+    },
+    "/taxon/{id}": {
+      "get": {
+        "description": "Fetches a taxon by id.\n",
+        "operationId": "getTaxonById",
+        "parameters": [
+          {
+            "description": "Taxon id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getTaxonByIdResponse"
+            }
+          }
+        },
+        "summary": "Fetches taxon by id",
+        "tags": [
+          "slimTaxonomyApi"
+        ]
+      }
+    }
+  }
+}

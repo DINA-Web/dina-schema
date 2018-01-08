@@ -1,0 +1,697 @@
+{
+  "catalogedUnit": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "physicalUnits": {
+        "type": "array",
+        "items": {
+          "$ref": "physicalUnit"
+        }
+      },
+      "publishRecord": {
+        "type": "boolean"
+      },
+      "remarks": {
+        "type": "string",
+        "example": "Some remarks"
+      },
+      "storedUnderTaxonName": {
+        "type": "string",
+        "example": "Sorex minutus"
+      },
+      "catalogNumber": {
+        "type": "string",
+        "example": "584028",
+        "minLength": 6,
+        "description": "Description for catalogNumber\n"
+      }
+    },
+    "required": [
+      "catalogNumber"
+    ],
+    "example": {
+      "id": 1234,
+      "storedUnderTaxonName": "mjau"
+    },
+    "x-modelType": "model",
+    "description": "",
+    "id": "catalogedUnit"
+  },
+  "featureObservation": {
+    "additionalProperties": false,
+    "properties": {
+      "featureObservationAgent": {
+        "type": "string",
+        "example": "Doe, J."
+      },
+      "featureObservationDate": {
+        "type": "string",
+        "example": "2017-12-12"
+      },
+      "featureObservationText": {
+        "type": "string",
+        "example": "10 years"
+      },
+      "featureObservationType": {
+        "$ref": "featureObservationType"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "methodText": {
+        "type": "string",
+        "example": "Known age"
+      }
+    },
+    "x-modelType": "model",
+    "description": "",
+    "id": "featureObservation"
+  },
+  "featureObservationType": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "featureObservationTypeName": {
+        "type": "string",
+        "enum": [
+          "age",
+          "ageStage",
+          "conditionAtCollecting",
+          "sex"
+        ]
+      }
+    },
+    "x-modelType": "model",
+    "description": "",
+    "id": "featureObservationType"
+  },
+  "identification": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "identificationRemarks": {
+        "type": "string",
+        "example": "Some remarks"
+      },
+      "identificationText": {
+        "type": "string",
+        "example": "Sorex minutus, by Doe, J. on 1982-01-01"
+      },
+      "identifiedAsVerbatim": {
+        "type": "string",
+        "description": "In exactly the same words as were used originally"
+      },
+      "identifiedByAgentText": {
+        "type": "string",
+        "example": "Doe, J."
+      },
+      "identifiedDay": {
+        "type": "integer",
+        "example": 25
+      },
+      "identifiedMonth": {
+        "type": "integer",
+        "example": 12
+      },
+      "identifiedTaxonNameStandardized": {
+        "type": "string",
+        "example": "Chironectes minimus"
+      },
+      "identifiedYear": {
+        "type": "integer",
+        "example": 1981
+      },
+      "individualGroup": {
+        "$ref": "individualGroup"
+      },
+      "isCurrentIdentification": {
+        "type": "boolean",
+        "example": true
+      },
+      "version": {
+        "type": "integer"
+      }
+    },
+    "x-modelType": "model",
+    "description": "",
+    "id": "identification"
+  },
+  "individualGroup": {
+    "additionalProperties": false,
+    "description": "# This is a description in a markdown file\n",
+    "properties": {
+      "causeOfDeathStandardized": {
+        "type": "string"
+      },
+      "causeOfDeathText": {
+        "type": "string"
+      },
+      "featureObservations": {
+        "type": "array",
+        "items": {
+          "$ref": "featureObservation"
+        }
+      },
+      "id": {
+        "type": "integer"
+      },
+      "identifications": {
+        "type": "array",
+        "items": {
+          "$ref": "identification"
+        }
+      },
+      "occurrences": {
+        "type": "array",
+        "items": {
+          "$ref": "occurrence"
+        }
+      },
+      "originStandardized": {
+        "type": "string"
+      },
+      "physicalUnits": {
+        "type": "array",
+        "items": {
+          "$ref": "physicalUnit"
+        }
+      },
+      "version": {
+        "type": "integer"
+      }
+    },
+    "x-modelType": "model",
+    "id": "individualGroup"
+  },
+  "occurrence": {
+    "additionalProperties": false,
+    "properties": {
+      "collectorsText": {
+        "type": "string",
+        "example": "Bergström, U",
+        "description": "Name of the collector"
+      },
+      "dayEnd": {
+        "type": "integer",
+        "example": 2
+      },
+      "dayStart": {
+        "type": "integer",
+        "example": 30
+      },
+      "establishmentMeansStandardized": {
+        "type": "string"
+      },
+      "expeditionText": {
+        "type": "string",
+        "example": "Vega Expedition"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "individualGroup": {
+        "$ref": "individualGroup"
+      },
+      "isDeathEvent": {
+        "type": "boolean"
+      },
+      "localityText": {
+        "type": "string",
+        "example": "Hälsingland, Enånger, Boda"
+      },
+      "monthEnd": {
+        "type": "integer",
+        "example": 3
+      },
+      "monthStart": {
+        "type": "integer",
+        "example": 2
+      },
+      "occurrenceDateText": {
+        "type": "string",
+        "example": "Before 1800"
+      },
+      "yearEnd": {
+        "type": "integer",
+        "example": 1991
+      },
+      "yearStart": {
+        "type": "integer",
+        "example": 1990
+      }
+    },
+    "x-modelType": "model",
+    "description": "",
+    "id": "occurrence"
+  },
+  "physicalUnit": {
+    "additionalProperties": false,
+    "properties": {
+      "alternateIdentifiersText": {
+        "type": "string",
+        "example": "Skin complete, prepared"
+      },
+      "catalogedUnit": {
+        "$ref": "catalogedUnit"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "individualGroup": {
+        "$ref": "individualGroup"
+      },
+      "normalStorageLocationText": {
+        "type": "string"
+      },
+      "physicalUnitText": {
+        "type": "string",
+        "example": "Skin complete, prepared"
+      }
+    },
+    "x-modelType": "model",
+    "description": "",
+    "id": "physicalUnit"
+  },
+  "taxon": {
+    "additionalProperties": false,
+    "properties": {
+      "parent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Parent taxon identifier"
+          },
+          "scientific_name": {
+            "type": "string",
+            "description": "Parent taxon scientific name"
+          },
+          "rank": {
+            "type": "string",
+            "description": "Parent taxon rank"
+          }
+        },
+        "required": [
+          "id",
+          "scientific_name",
+          "rank"
+        ]
+      },
+      "rubin_number": {
+        "type": "string",
+        "description": "Rubin storage number for the taxon"
+      },
+      "higherTaxa": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "string",
+            "description": "Parent order"
+          },
+          "suborder": {
+            "type": "string",
+            "description": "Parent suborder"
+          },
+          "infraorder": {
+            "type": "string",
+            "description": "Parent infraorder"
+          },
+          "superfamily": {
+            "type": "string",
+            "description": "Parent superfamily"
+          },
+          "family": {
+            "type": "string",
+            "description": "Parent family"
+          },
+          "subfamily": {
+            "type": "string",
+            "description": "Parent subfamily"
+          },
+          "tribe": {
+            "type": "string",
+            "description": "Parent tribe"
+          },
+          "genus": {
+            "type": "string",
+            "description": "Parent genus"
+          },
+          "subgenus": {
+            "type": "string",
+            "description": "Parent subgenus"
+          }
+        }
+      },
+      "rank": {
+        "type": "string",
+        "description": "Taxon rank"
+      },
+      "scientific_name": {
+        "type": "string",
+        "description": "Taxon scientific name, binomial if species"
+      },
+      "author": {
+        "type": "string",
+        "description": "Taxon author without the year"
+      },
+      "author_date": {
+        "type": "string",
+        "description": "Taxon author year"
+      },
+      "valid_name": {
+        "type": "boolean",
+        "description": "Is the name taxonomically valid",
+        "default": false
+      },
+      "verncular_names": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Vernacular (common) English names for the taxon"
+            }
+          }
+        }
+      },
+      "synonyms": {
+        "type": "string",
+        "description": "List of synonyms as free-form text"
+      },
+      "sort_order": {
+        "type": "string",
+        "description": "Taxonomical sort order code from Mammal Species of the World list"
+      }
+    },
+    "required": [
+      "rank",
+      "scientific_name",
+      "valid_name"
+    ],
+    "x-modelType": "model",
+    "description": "",
+    "id": "taxon"
+  },
+  "createIndividualGroupResponse": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1234
+          },
+          "type": {
+            "type": "string",
+            "default": "individualGroup"
+          },
+          "attributes": {
+            "$ref": "individualGroup"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "getIndividualGroupsResponse": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "additionalProperties": false,
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "individualGroup"
+            },
+            "id": {
+              "type": "integer",
+              "example": 1234
+            },
+            "attributes": {
+              "$ref": "individualGroup"
+            }
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "updateIndividualGroupResponse": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1234
+          },
+          "type": {
+            "type": "string",
+            "example": "individualGroup"
+          },
+          "attributes": {
+            "$ref": "individualGroup"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "getUserResponse": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "email": {
+        "type": "string",
+        "example": "john.doe@example.com"
+      },
+      "family_name": {
+        "type": "string",
+        "example": "Doe"
+      },
+      "given_name": {
+        "type": "string",
+        "example": "John"
+      },
+      "name": {
+        "type": "string",
+        "example": "John Doe"
+      },
+      "preferred_username": {
+        "type": "string",
+        "example": "john doe"
+      },
+      "sub": {
+        "type": "string",
+        "example": "xxxx"
+      }
+    },
+    "required": [
+      "email",
+      "preferred_username"
+    ],
+    "description": ""
+  },
+  "loginUserResponse": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "access_token": {
+        "type": "string",
+        "example": "xxxx"
+      },
+      "expires_in": {
+        "type": "integer",
+        "example": 300
+      },
+      "not-before-policy": {
+        "type": "integer",
+        "example": 0
+      },
+      "refresh_expires_in": {
+        "type": "integer",
+        "example": 1800
+      },
+      "refresh_token": {
+        "type": "string",
+        "example": "xxxx"
+      },
+      "session_state": {
+        "type": "string",
+        "example": "bearer"
+      },
+      "token_type": {
+        "type": "string",
+        "example": "xxxx"
+      }
+    },
+    "required": [
+      "access_token"
+    ],
+    "description": ""
+  },
+  "getTaxaByNameResponse": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "taxon",
+              "example": "taxon"
+            },
+            "id": {
+              "type": "integer",
+              "example": 1234
+            },
+            "attributes": {
+              "$ref": "taxon"
+            }
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "getTaxonByIdResponse": {
+    "additionalProperties": true,
+    "properties": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1234
+          },
+          "type": {
+            "type": "string",
+            "default": "taxon"
+          },
+          "attributes": {
+            "$ref": "taxon"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "createIndividualGroupRequest": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "individualGroup",
+            "default": "individualGroup"
+          },
+          "attributes": {
+            "$ref": "individualGroup"
+          },
+          "additionalData": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "catalogedUnit",
+                  "example": "catalogedUnit"
+                },
+                "id": {
+                  "type": "integer",
+                  "example": 1234
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "catalogNumber": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "updateIndividualGroupRequest": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string",
+            "example": "individualGroup",
+            "default": "individualGroup"
+          },
+          "attributes": {
+            "$ref": "individualGroup"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "loginUserRequest": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "client_id": {
+        "type": "string",
+        "example": "dina-reset"
+      },
+      "grant_type": {
+        "type": "string",
+        "example": "password"
+      },
+      "password": {
+        "type": "string",
+        "example": "xxxxx"
+      },
+      "username": {
+        "type": "string",
+        "example": "john doe"
+      }
+    },
+    "required": [
+      "client_id",
+      "grant_type",
+      "password",
+      "username"
+    ],
+    "description": ""
+  }
+}
