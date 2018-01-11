@@ -671,8 +671,8 @@
                 "example": "taxon"
               },
               "id": {
-                "type": "integer",
-                "example": 1234
+                "type": "string",
+                "example": "1234"
               },
               "attributes": {
                 "$ref": "#/definitions/taxon"
@@ -689,8 +689,8 @@
           "type": "object",
           "properties": {
             "id": {
-              "type": "integer",
-              "example": 1234
+              "type": "string",
+              "example": "1234"
             },
             "type": {
               "type": "string",
@@ -896,7 +896,7 @@
             "in": "path",
             "name": "id",
             "required": true,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {

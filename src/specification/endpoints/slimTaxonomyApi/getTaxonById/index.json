@@ -5,11 +5,11 @@
   "pathParams": {
     "id": {
       "schema": {
-        "type": "integer"
+        "type": "string"
       },
       "description": "Taxon id",
       "required": true,
-      "example": 14200208
+      "example": "14200208"
     }
   }
 }
