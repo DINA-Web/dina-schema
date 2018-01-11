@@ -15,8 +15,8 @@
               "example": "taxon"
             },
             "id": {
-              "type": "integer",
-              "example": 1234
+              "type": "string",
+              "example": "1234"
             },
             "attributes": {
               "$ref": "__ROOT__taxon"

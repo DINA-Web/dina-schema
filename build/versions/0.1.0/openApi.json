@@ -283,11 +283,11 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "integer"
+              "type": "string"
             },
             "description": "Taxon id",
             "required": true,
-            "example": 14200208
+            "example": "14200208"
           }
         ],
         "responses": {
@@ -949,8 +949,8 @@
                   "example": "taxon"
                 },
                 "id": {
-                  "type": "integer",
-                  "example": 1234
+                  "type": "string",
+                  "example": "1234"
                 },
                 "attributes": {
                   "$ref": "#/components/schemas/taxon"
@@ -967,8 +967,8 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "integer",
-                "example": 1234
+                "type": "string",
+                "example": "1234"
               },
               "type": {
                 "type": "string",
