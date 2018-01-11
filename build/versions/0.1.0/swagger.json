@@ -391,7 +391,7 @@
           "description": "Is the name taxonomically valid",
           "default": false
         },
-        "verncular_names": {
+        "vernacular_names": {
           "type": "object",
           "properties": {
             "en": {
