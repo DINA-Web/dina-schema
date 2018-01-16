@@ -13,10 +13,7 @@
     "id": { "type": "integer" },
     "individualGroup": { "$ref": "__ROOT__individualGroup" },
     "isDeathEvent": { "type": "boolean" },
-    "localityText": {
-      "type": "string",
-      "example": "Hälsingland, Enånger, Boda"
-    },
+    "localityInformation": { "$ref": "__ROOT__localityInformation" },
     "monthEnd": { "type": "integer", "example": 3 },
     "monthStart": { "type": "integer", "example": 2 },
     "occurrenceDateText": { "type": "string", "example": "Before 1800" },
