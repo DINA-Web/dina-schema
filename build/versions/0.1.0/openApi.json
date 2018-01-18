@@ -606,6 +606,9 @@
           "localityInformation": {
             "$ref": "#/components/schemas/localityInformation"
           },
+          "localityText": {
+            "type": "string"
+          },
           "monthEnd": {
             "type": "integer",
             "example": 3

@@ -328,6 +328,9 @@
         "localityInformation": {
           "$ref": "#/definitions/localityInformation"
         },
+        "localityText": {
+          "type": "string"
+        },
         "monthEnd": {
           "type": "integer",
           "example": 3
