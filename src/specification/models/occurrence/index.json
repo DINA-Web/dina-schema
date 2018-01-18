@@ -14,6 +14,7 @@
     "individualGroup": { "$ref": "__ROOT__individualGroup" },
     "isDeathEvent": { "type": "boolean" },
     "localityInformation": { "$ref": "__ROOT__localityInformation" },
+    "localityText": { "type": "string" },
     "monthEnd": { "type": "integer", "example": 3 },
     "monthStart": { "type": "integer", "example": 2 },
     "occurrenceDateText": { "type": "string", "example": "Before 1800" },
