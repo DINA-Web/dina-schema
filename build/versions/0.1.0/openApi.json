@@ -418,6 +418,10 @@
             "type": "string",
             "example": "Doe, J."
           },
+          "identifiedDateText": {
+            "type": "string",
+            "example": "Before 1800"
+          },
           "identifiedDay": {
             "type": "integer",
             "example": 25
@@ -493,6 +497,80 @@
         },
         "x-modelType": "model"
       },
+      "localityInformation": {
+        "additionalProperties": false,
+        "properties": {
+          "continentStandardized": {
+            "type": "string",
+            "description": "Name of a continent"
+          },
+          "coordinatesVerbatim": {
+            "type": "string",
+            "description": "Verbatim coordinates (or corresponding information, e.g. map number) from the original source"
+          },
+          "coordinateUncertaintyInMeters": {
+            "type": "string",
+            "description": "Coordinate uncertainty in meters"
+          },
+          "countryStandardized": {
+            "type": "string",
+            "description": "Name of a country"
+          },
+          "districtStandardized": {
+            "type": "string",
+            "description": "Name of a municipality, county or such (e.g. kommun)"
+          },
+          "geodeticDatumStandardized": {
+            "type": "string",
+            "description": "Single data (coordinate system), e.g. “wgs84” or “sweref99”. Leave empty if unknown."
+          },
+          "georeferenceSourcesText": {
+            "type": "string",
+            "description": "Describe how you got the georeferenced coordinates (data source(s), tools, maps ...)"
+          },
+          "latitudeStandardized": {
+            "type": "string",
+            "description": "Latitude or northing. Use negative number or letter S for coordinates on southern hemisphere."
+          },
+          "localityRemarks": {
+            "type": "string",
+            "description": "Notes on the locality"
+          },
+          "localityStandardized": {
+            "type": "string",
+            "description": "Locality name(s) which don’t fit to other fields. E.g. detailed place or water body (e.g. “Frescati” or “Baltic sea”)"
+          },
+          "localityVerbatim": {
+            "type": "string",
+            "description": "Verbatim locality names and description, as in the original source, typos and all."
+          },
+          "longitudeStandardized": {
+            "type": "string",
+            "description": "Latitude or easting. Use negative number or letter W for coordinates on western hemisphere."
+          },
+          "maximumDepthInMeters": {
+            "type": "string",
+            "description": "Max depth (m)"
+          },
+          "maximumElevationInMeters": {
+            "type": "string",
+            "description": "Max elevation (m)"
+          },
+          "minimumDepthInMeters": {
+            "type": "string",
+            "description": "Min depth (m)"
+          },
+          "minimumElevationInMeters": {
+            "type": "string",
+            "description": "Min elevation (m)"
+          },
+          "provinceStandardized": {
+            "type": "string",
+            "description": "Name of a province (e.g. län)"
+          }
+        },
+        "x-modelType": "model"
+      },
       "occurrence": {
         "additionalProperties": false,
         "properties": {
@@ -525,9 +603,8 @@
           "isDeathEvent": {
             "type": "boolean"
           },
-          "localityText": {
-            "type": "string",
-            "example": "Hälsingland, Enånger, Boda"
+          "localityInformation": {
+            "$ref": "#/components/schemas/localityInformation"
           },
           "monthEnd": {
             "type": "integer",

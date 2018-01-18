@@ -18,6 +18,10 @@
       "type": "string",
       "example": "Doe, J."
     },
+    "identifiedDateText": {
+      "type": "string",
+      "example": "Before 1800"
+    },
     "identifiedDay": {
       "type": "integer",
       "example": 25
