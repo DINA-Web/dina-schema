@@ -528,6 +528,9 @@
             "type": "string",
             "description": "Describe how you got the georeferenced coordinates (data source(s), tools, maps ...)"
           },
+          "id": {
+            "type": "integer"
+          },
           "latitudeStandardized": {
             "type": "string",
             "description": "Latitude or northing. Use negative number or letter S for coordinates on southern hemisphere."
