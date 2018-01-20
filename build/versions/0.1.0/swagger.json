@@ -103,19 +103,32 @@
     "featureObservationType": {
       "additionalProperties": false,
       "properties": {
-        "id": {
-          "type": "integer"
-        },
         "featureObservationTypeName": {
           "type": "string",
           "enum": [
+            "sex",
+            "length",
             "age",
-            "ageStage",
+            "weight",
             "conditionAtCollecting",
-            "sex"
+            "ageStage"
+          ]
+        },
+        "id": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
           ]
         }
       },
+      "required": [
+        "featureObservationTypeName"
+      ],
       "x-modelType": "model"
     },
     "identification": {
