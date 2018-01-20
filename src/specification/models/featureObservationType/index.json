@@ -1,10 +1,11 @@
 {
   "additionalProperties": false,
   "properties": {
-    "id": { "type": "integer" },
     "featureObservationTypeName": {
       "type": "string",
       "enum": ["age", "ageStage", "conditionAtCollecting", "sex"]
-    }
-  }
+    },
+    "id": { "type": "integer", "enum": [1, 2, 3, 4] }
+  },
+  "required":["featureObservationTypeName"]
 }

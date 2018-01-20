@@ -381,9 +381,6 @@
       "featureObservationType": {
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "integer"
-          },
           "featureObservationTypeName": {
             "type": "string",
             "enum": [
@@ -392,8 +389,20 @@
               "conditionAtCollecting",
               "sex"
             ]
+          },
+          "id": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
           }
         },
+        "required": [
+          "featureObservationTypeName"
+        ],
         "x-modelType": "model"
       },
       "identification": {
