@@ -892,8 +892,8 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "integer",
-                "example": 1234
+                "type": "string",
+                "example": "1234"
               },
               "type": {
                 "type": "string",
@@ -921,8 +921,8 @@
                   "default": "individualGroup"
                 },
                 "id": {
-                  "type": "integer",
-                  "example": 1234
+                  "type": "string",
+                  "example": "1234"
                 },
                 "attributes": {
                   "$ref": "#/components/schemas/individualGroup"
@@ -941,8 +941,8 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "integer",
-                "example": 1234
+                "type": "string",
+                "example": "1234"
               },
               "type": {
                 "type": "string",
