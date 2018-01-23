@@ -1,0 +1,8 @@
+{
+  "description": "Empty body",
+  "body": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {}
+  }
+}

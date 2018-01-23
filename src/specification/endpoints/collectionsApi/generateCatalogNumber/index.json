@@ -1,0 +1,5 @@
+{
+  "summary": "Generate a new, unique catalog number",
+  "path": "/collections/api/v01/catalogedUnit/actions/generateCatalogNumber",
+  "method": "post"
+}
