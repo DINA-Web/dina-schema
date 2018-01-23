@@ -487,7 +487,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/identification"
-            }
+            },
+            "minItems": 1
           },
           "occurrences": {
             "type": "array",

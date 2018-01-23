@@ -11,7 +11,8 @@
     "id": { "type": "integer" },
     "identifications": {
       "type": "array",
-      "items": { "$ref": "__ROOT__identification" }
+      "items": { "$ref": "__ROOT__identification" },
+      "minItems": 1
     },
     "occurrences": {
       "type": "array",

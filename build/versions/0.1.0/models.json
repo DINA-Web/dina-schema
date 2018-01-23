@@ -183,7 +183,8 @@
         "type": "array",
         "items": {
           "$ref": "identification"
-        }
+        },
+        "minItems": 1
       },
       "occurrences": {
         "type": "array",

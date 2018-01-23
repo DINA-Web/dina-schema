@@ -209,7 +209,8 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/identification"
-          }
+          },
+          "minItems": 1
         },
         "occurrences": {
           "type": "array",
