@@ -59,8 +59,8 @@
         "catalogNumber": {
           "type": "string",
           "example": "584028",
-          "minLength": 6,
-          "description": "Description for catalogNumber\n"
+          "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+          "description": "Catalog number is a string of 6 or 8 digits\n"
         }
       },
       "required": [
@@ -559,6 +559,11 @@
         }
       }
     },
+    "generateCatalogNumberRequest": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {}
+    },
     "updateIndividualGroupRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -576,6 +581,23 @@
             },
             "attributes": {
               "$ref": "#/definitions/individualGroup"
+            }
+          }
+        }
+      }
+    },
+    "validateCatalogNumberRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "catalogNumber": {
+              "type": "string",
+              "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+              "example": "584028"
             }
           }
         }
@@ -632,6 +654,23 @@
         }
       }
     },
+    "generateCatalogNumberResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "catalogNumber": {
+              "type": "string",
+              "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+              "example": "584028"
+            }
+          }
+        }
+      }
+    },
     "getIndividualGroupsResponse": {
       "additionalProperties": false,
       "type": "object",
@@ -676,6 +715,27 @@
             },
             "attributes": {
               "$ref": "#/definitions/individualGroup"
+            }
+          }
+        }
+      }
+    },
+    "validateCatalogNumberResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "catalogNumber": {
+              "type": "string",
+              "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+              "example": "584028"
+            },
+            "isValid": {
+              "type": "boolean",
+              "example": true
             }
           }
         }
@@ -868,6 +928,34 @@
         ]
       }
     },
+    "/collections/api/v01/catalogedUnit/actions/generateCatalogNumber": {
+      "post": {
+        "description": "This endpoint is used to generate new, unique catalog numbers for the mammal collection\n",
+        "operationId": "generateCatalogNumber",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "generateCatalogNumberRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/generateCatalogNumberRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/generateCatalogNumberResponse"
+            }
+          }
+        },
+        "summary": "Generate a new, unique catalog number",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
     "/collections/api/v01/individualGroups/{id}": {
       "patch": {
         "description": "This endpoint is for the moment used to edit mammals in the mammal specimen form\n",
@@ -898,6 +986,34 @@
           }
         },
         "summary": "Update an individual group by id",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
+    "/collections/api/v01/catalogedUnit/actions/validateCatalogNumber": {
+      "post": {
+        "description": "This endpoint is used to validate catalog numbers for the mammal collection\n",
+        "operationId": "validateCatalogNumber",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "validateCatalogNumberRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/validateCatalogNumberRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/validateCatalogNumberResponse"
+            }
+          }
+        },
+        "summary": "Validate that a catalog number is unique and correctly formatted",
         "tags": [
           "collectionsApi"
         ]

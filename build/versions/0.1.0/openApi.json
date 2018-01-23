@@ -128,6 +128,39 @@
         ]
       }
     },
+    "/collections/api/v01/catalogedUnit/actions/generateCatalogNumber": {
+      "post": {
+        "description": "This endpoint is used to generate new, unique catalog numbers for the mammal collection\n",
+        "operationId": "generateCatalogNumber",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/generateCatalogNumberRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/generateCatalogNumberResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Generate a new, unique catalog number",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
     "/collections/api/v01/individualGroups/{id}": {
       "patch": {
         "description": "This endpoint is for the moment used to edit mammals in the mammal specimen form\n",
@@ -167,6 +200,39 @@
           }
         },
         "summary": "Update an individual group by id",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
+    "/collections/api/v01/catalogedUnit/actions/validateCatalogNumber": {
+      "post": {
+        "description": "This endpoint is used to validate catalog numbers for the mammal collection\n",
+        "operationId": "validateCatalogNumber",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/validateCatalogNumberRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/validateCatalogNumberResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Validate that a catalog number is unique and correctly formatted",
         "tags": [
           "collectionsApi"
         ]
@@ -337,8 +403,8 @@
           "catalogNumber": {
             "type": "string",
             "example": "584028",
-            "minLength": 6,
-            "description": "Description for catalogNumber\n"
+            "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+            "description": "Catalog number is a string of 6 or 8 digits\n"
           }
         },
         "required": [
@@ -837,6 +903,11 @@
           }
         }
       },
+      "generateCatalogNumberRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {}
+      },
       "updateIndividualGroupRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -854,6 +925,23 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/individualGroup"
+              }
+            }
+          }
+        }
+      },
+      "validateCatalogNumberRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "catalogNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+                "example": "584028"
               }
             }
           }
@@ -910,6 +998,23 @@
           }
         }
       },
+      "generateCatalogNumberResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "catalogNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+                "example": "584028"
+              }
+            }
+          }
+        }
+      },
       "getIndividualGroupsResponse": {
         "additionalProperties": false,
         "type": "object",
@@ -954,6 +1059,27 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/individualGroup"
+              }
+            }
+          }
+        }
+      },
+      "validateCatalogNumberResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "catalogNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+                "example": "584028"
+              },
+              "isValid": {
+                "type": "boolean",
+                "example": true
               }
             }
           }
