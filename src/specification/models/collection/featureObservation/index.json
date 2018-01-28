@@ -5,7 +5,7 @@
     "featureObservationDate": { "type": "string", "example": "2017-12-12" },
     "featureObservationText": { "type": "string", "example": "10 years" },
     "featureObservationType": { "$ref": "__ROOT__featureObservationType" },
-    "id": { "type": "integer" },
+    "id": { "type": "string" },
     "methodText": { "type": "string", "example": "Known age" }
   }
 }

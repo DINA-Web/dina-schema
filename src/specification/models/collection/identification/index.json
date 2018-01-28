@@ -1,7 +1,7 @@
 {
   "additionalProperties": false,
   "properties": {
-    "id": { "type": "integer" },
+    "id": { "type": "string" },
     "identificationRemarks": {
       "type": "string",
       "example": "Some remarks"

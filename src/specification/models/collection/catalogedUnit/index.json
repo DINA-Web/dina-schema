@@ -1,7 +1,7 @@
 {
   "additionalProperties": false,
   "properties": {
-    "id": { "type": "integer" },
+    "id": { "type": "string" },
     "physicalUnits": {
       "type": "array",
       "items": { "$ref": "__ROOT__physicalUnit" }

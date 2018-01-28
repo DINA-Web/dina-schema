@@ -6,7 +6,7 @@
       "example": "Skin complete, prepared"
     },
     "catalogedUnit": { "$ref": "__ROOT__catalogedUnit" },
-    "id": { "type": "integer" },
+    "id": { "type": "string" },
     "individualGroup": { "$ref": "__ROOT__individualGroup" },
     "normalStorageLocationText": { "type": "string" },
     "physicalUnitText": {

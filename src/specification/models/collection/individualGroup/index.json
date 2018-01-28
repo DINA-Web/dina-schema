@@ -8,7 +8,7 @@
       "type": "array",
       "items": { "$ref": "__ROOT__featureObservation" }
     },
-    "id": { "type": "integer" },
+    "id": { "type": "string" },
     "identifications": {
       "type": "array",
       "items": { "$ref": "__ROOT__identification" }

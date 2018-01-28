@@ -26,8 +26,8 @@
                   "example": "catalogedUnit"
                 },
                 "id": {
-                  "type": "integer",
-                  "example": 1234
+                  "type": "string",
+                  "example": "1234"
                 },
                 "attributes": {
                   "type": "object",
