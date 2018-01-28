@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "description": "Description of collections api\n",
+      "description": "Description of speciments api\n",
       "url": "https://alpha-api.dina-web.net"
     },
     {
@@ -30,8 +30,8 @@
   "security": [],
   "tags": [
     {
-      "description": "Description of collections api\n",
-      "name": "collectionsApi"
+      "description": "Description of speciments api\n",
+      "name": "catalogApi"
     },
     {
       "description": "Description of keycloak\n",
@@ -71,7 +71,7 @@
         },
         "summary": "Create a batch upload",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       },
       "get": {
@@ -91,7 +91,7 @@
         },
         "summary": "Get batchUploads",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       }
     },
@@ -134,7 +134,7 @@
         },
         "summary": "Delete a batch upload item",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       },
       "get": {
@@ -175,7 +175,7 @@
         },
         "summary": "Get a batch update item by itemId",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       },
       "put": {
@@ -226,7 +226,7 @@
         },
         "summary": "Get a batch update by id",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       }
     },
@@ -259,7 +259,7 @@
         },
         "summary": "Get a batch update by id",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       }
     },
@@ -292,7 +292,7 @@
         },
         "summary": "Get batchUpload items",
         "tags": [
-          "batchUpload"
+          "batchUploadApi"
         ]
       }
     },
@@ -314,40 +314,7 @@
         },
         "summary": "Save a batch upload",
         "tags": [
-          "batchUpload"
-        ]
-      }
-    },
-    "/collections/api/v01/curatedLocality": {
-      "post": {
-        "description": "Create a curatedLocality\n",
-        "operationId": "createCuratedLocality",
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/createCuratedLocalityRequest"
-              }
-            }
-          },
-          "description": "successful operation"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/createCuratedLocalityResponse"
-                }
-              }
-            },
-            "description": "successful operation"
-          }
-        },
-        "summary": "Create a curatedLocality",
-        "tags": [
-          "collectionsApi"
+          "batchUploadApi"
         ]
       }
     },
@@ -380,7 +347,7 @@
         },
         "summary": "Create an individual group and a catalogUnit if not existing",
         "tags": [
-          "collectionsApi"
+          "catalogApi"
         ]
       },
       "get": {
@@ -432,124 +399,7 @@
         },
         "summary": "Finds individualGroups",
         "tags": [
-          "collectionsApi"
-        ]
-      }
-    },
-    "/collections/api/v01/curatedLocality/{id}": {
-      "get": {
-        "operationId": "getCuratedLocality",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Curated locality id",
-            "required": true,
-            "example": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/getCuratedLocalityResponse"
-                }
-              }
-            },
-            "description": "successful operation"
-          }
-        },
-        "summary": "Find latest version of a curatedLocality",
-        "tags": [
-          "collectionsApi"
-        ]
-      },
-      "put": {
-        "operationId": "updateCuratedLocality",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "curatedLocality id",
-            "required": true,
-            "example": 1
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/updateCuratedLocalityRequest"
-              }
-            }
-          },
-          "description": "successful operation"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/updateCuratedLocalityResponse"
-                }
-              }
-            },
-            "description": "successful operation"
-          }
-        },
-        "summary": "Update an curatedLocality id",
-        "tags": [
-          "collectionsApi"
-        ]
-      }
-    },
-    "/collections/api/v01/curatedLocality/{id}/versions/${versionId}": {
-      "get": {
-        "operationId": "getCuratedLocalityByVersion",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Curated locality id",
-            "required": true,
-            "example": 1
-          },
-          {
-            "in": "path",
-            "name": "versionId",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Curated locality versionId",
-            "required": true,
-            "example": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/getCuratedLocalityByVersionResponse"
-                }
-              }
-            },
-            "description": "successful operation"
-          }
-        },
-        "summary": "Find latest version of a curatedLocality",
-        "tags": [
-          "collectionsApi"
+          "catalogApi"
         ]
       }
     },
@@ -593,7 +443,148 @@
         },
         "summary": "Update an individual group by id",
         "tags": [
-          "collectionsApi"
+          "catalogApi"
+        ]
+      }
+    },
+    "/api/v01/physicalUnits": {
+      "post": {
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createPhysicalUnitRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPhysicalUnitResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Create a physicalUnit",
+        "tags": [
+          "inventoryApi"
+        ]
+      },
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getPhysicalUnitsResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get a physicalUnits",
+        "tags": [
+          "inventoryApi"
+        ]
+      }
+    },
+    "/api/v01/physicalUnits/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "physicalUnits id",
+            "example": 1,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPhysicalUnitResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Delete a physical unit",
+        "tags": [
+          "inventoryApi"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "physicalUnits id",
+            "example": "1",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getPhysicalUnitsResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get a physicalUnits by id",
+        "tags": [
+          "inventoryApi"
+        ]
+      },
+      "put": {
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createPhysicalUnitRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPhysicalUnitResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Update a physicalUnit",
+        "tags": [
+          "inventoryApi"
         ]
       }
     },
@@ -615,7 +606,7 @@
         },
         "summary": "Gets user object",
         "tags": [
-          "keycloak"
+          "keycloakApi"
         ]
       }
     },
@@ -647,7 +638,157 @@
         },
         "summary": "Gets user token",
         "tags": [
-          "keycloak"
+          "keycloakApi"
+        ]
+      }
+    },
+    "/collections/api/v01/curatedLocality": {
+      "post": {
+        "description": "Create a curatedLocality\n",
+        "operationId": "createCuratedLocality",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createCuratedLocalityRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createCuratedLocalityResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Create a curatedLocality",
+        "tags": [
+          "localityApi"
+        ]
+      }
+    },
+    "/collections/api/v01/curatedLocality/{id}": {
+      "get": {
+        "operationId": "getCuratedLocality",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Curated locality id",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCuratedLocalityResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Find latest version of a curatedLocality",
+        "tags": [
+          "localityApi"
+        ]
+      },
+      "put": {
+        "operationId": "updateCuratedLocality",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "curatedLocality id",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateCuratedLocalityRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateCuratedLocalityResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Update an curatedLocality id",
+        "tags": [
+          "localityApi"
+        ]
+      }
+    },
+    "/collections/api/v01/curatedLocality/{id}/versions/${versionId}": {
+      "get": {
+        "operationId": "getCuratedLocalityByVersion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Curated locality id",
+            "required": true,
+            "example": 1
+          },
+          {
+            "in": "path",
+            "name": "versionId",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Curated locality versionId",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCuratedLocalityByVersionResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Find latest version of a curatedLocality",
+        "tags": [
+          "localityApi"
         ]
       }
     },
@@ -736,66 +877,6 @@
   },
   "components": {
     "schemas": {
-      "batchItem": {
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "data": {
-            "type": "object",
-            "description": "Should have a one of condition"
-          },
-          "model": {
-            "type": "string"
-          },
-          "schemaVersion": {
-            "type": "string"
-          },
-          "uploaded": {
-            "type": "boolean"
-          },
-          "isValid": {
-            "type": "boolean"
-          }
-        },
-        "x-category": "batch",
-        "x-modelType": "model"
-      },
-      "batchUpload": {
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/batchItem"
-            }
-          },
-          "uploadStarted": {
-            "type": "boolean"
-          },
-          "uploadCompleted": {
-            "type": "boolean"
-          },
-          "userId": {
-            "type": "boolean"
-          },
-          "nUploadedItems": {
-            "type": "integer"
-          },
-          "nValidItems": {
-            "type": "integer"
-          },
-          "nItems": {
-            "type": "integer"
-          }
-        },
-        "x-category": "batch",
-        "x-modelType": "model"
-      },
       "catalogedUnit": {
         "additionalProperties": false,
         "properties": {
@@ -816,8 +897,7 @@
             "example": "Some remarks"
           },
           "storedUnderTaxonName": {
-            "type": "string",
-            "example": "Sorex minutus"
+            "$ref": "#/components/schemas/taxon"
           },
           "catalogNumber": {
             "type": "string",
@@ -833,7 +913,7 @@
           "id": 1234,
           "storedUnderTaxonName": "mjau"
         },
-        "x-category": "collection",
+        "x-category": "catalog",
         "x-modelType": "model"
       },
       "featureObservation": {
@@ -862,7 +942,7 @@
             "example": "Known age"
           }
         },
-        "x-category": "collection",
+        "x-category": "catalog",
         "x-modelType": "model"
       },
       "featureObservationType": {
@@ -894,7 +974,7 @@
         "required": [
           "featureObservationTypeName"
         ],
-        "x-category": "collection",
+        "x-category": "catalog",
         "x-modelType": "model"
       },
       "identification": {
@@ -950,7 +1030,7 @@
             "type": "integer"
           }
         },
-        "x-category": "collection",
+        "x-category": "catalog",
         "x-modelType": "model"
       },
       "individualGroup": {
@@ -997,7 +1077,7 @@
             "type": "integer"
           }
         },
-        "x-category": "collection",
+        "x-category": "catalog",
         "x-modelType": "model"
       },
       "localityInformation": {
@@ -1047,7 +1127,7 @@
           }
         },
         "description": "# localityInformation\n\nContains information related to where an occurrence happened. \n",
-        "x-category": "collection",
+        "x-category": "catalog",
         "x-modelType": "model"
       },
       "occurrence": {
@@ -1058,13 +1138,8 @@
             "example": "Bergström, U",
             "description": "Name of the collector"
           },
-          "dayEnd": {
-            "type": "integer",
-            "example": 2
-          },
-          "dayStart": {
-            "type": "integer",
-            "example": 30
+          "endDate": {
+            "$ref": "#/components/schemas/date"
           },
           "establishmentMeansStandardized": {
             "type": "string"
@@ -1085,28 +1160,35 @@
           "localityInformation": {
             "$ref": "#/components/schemas/localityInformation"
           },
-          "monthEnd": {
-            "type": "integer",
-            "example": 3
-          },
-          "monthStart": {
-            "type": "integer",
-            "example": 2
-          },
-          "occurrenceDateText": {
-            "type": "string",
-            "example": "Before 1800"
-          },
-          "yearEnd": {
-            "type": "integer",
-            "example": 1991
-          },
-          "yearStart": {
-            "type": "integer",
-            "example": 1990
+          "startDate": {
+            "$ref": "#/components/schemas/date"
           }
         },
-        "x-category": "collection",
+        "x-category": "catalog",
+        "x-modelType": "model"
+      },
+      "inventoryUnit": {
+        "additionalProperties": false,
+        "properties": {
+          "normalStorageLocationText": {
+            "type": "string"
+          },
+          "physicalUnit": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/physicalUnit"
+            }
+          },
+          "storage": {
+            "type": "string",
+            "description": "Storage reference"
+          },
+          "loan": {
+            "type": "string",
+            "description": "Loan reference"
+          }
+        },
+        "x-category": "inventory",
         "x-modelType": "model"
       },
       "physicalUnit": {
@@ -1122,90 +1204,15 @@
           "id": {
             "type": "string"
           },
-          "individualGroup": {
-            "$ref": "#/components/schemas/individualGroup"
-          },
-          "normalStorageLocationText": {
-            "type": "string"
+          "inventoryUnit": {
+            "$ref": "#/components/schemas/inventoryUnit"
           },
           "physicalUnitText": {
             "type": "string",
             "example": "Skin complete, prepared"
           }
         },
-        "x-category": "collection",
-        "x-modelType": "model"
-      },
-      "polygon": {
-        "additionalProperties": false,
-        "description": "A polygon with longitude, latitude vertices",
-        "properties": {
-          "vertices": {
-            "type": "array",
-            "description": "Corners of the polygon in sane format"
-          }
-        },
-        "x-category": "core",
-        "x-modelType": "model"
-      },
-      "position": {
-        "additionalProperties": false,
-        "description": "A position represent a specific position",
-        "properties": {
-          "latitude": {
-            "type": "string",
-            "description": "Latitude or northing. Use negative number or letter S for coordinates on southern hemisphere."
-          },
-          "longitude": {
-            "type": "string",
-            "description": "Latitude or easting. Use negative number or letter W for coordinates on western hemisphere."
-          },
-          "geodeticDatum": {
-            "type": "string",
-            "description": "Geodetic datum wip"
-          },
-          "uncertaintyInMeters": {
-            "type": "integer",
-            "description": "Coordinate uncertainty in meters"
-          }
-        },
-        "x-required": [
-          "name",
-          "id",
-          "description",
-          "type"
-        ],
-        "x-category": "core",
-        "x-modelType": "model"
-      },
-      "verticalPosition": {
-        "additionalProperties": false,
-        "description": "A description of vertical position",
-        "properties": {
-          "maximumDepthInMeters": {
-            "type": "integer",
-            "description": "Max depth (m)"
-          },
-          "maximumElevationInMeters": {
-            "type": "integer",
-            "description": "Max elevation (m)"
-          },
-          "minimumDepthInMeters": {
-            "type": "integer",
-            "description": "Min depth (m)"
-          },
-          "minimumElevationInMeters": {
-            "type": "integer",
-            "description": "Min elevation (m)"
-          }
-        },
-        "x-required": [
-          "name",
-          "id",
-          "description",
-          "type"
-        ],
-        "x-category": "core",
+        "x-category": "inventory",
         "x-modelType": "model"
       },
       "curatedLocality": {
@@ -1286,7 +1293,7 @@
           "type"
         ],
         "description": "A curated locality is a ...\n",
-        "x-category": "curatedLocality",
+        "x-category": "locality",
         "x-modelType": "model"
       },
       "curatedLocalityRelation": {
@@ -1305,7 +1312,79 @@
             ]
           }
         },
-        "x-category": "curatedLocality",
+        "x-category": "locality",
+        "x-modelType": "model"
+      },
+      "polygon": {
+        "additionalProperties": false,
+        "description": "A polygon with longitude, latitude vertices",
+        "properties": {
+          "vertices": {
+            "type": "array",
+            "description": "Corners of the polygon in sane format"
+          }
+        },
+        "x-category": "locality",
+        "x-modelType": "model"
+      },
+      "position": {
+        "additionalProperties": false,
+        "description": "A position represent a specific position",
+        "properties": {
+          "latitude": {
+            "type": "string",
+            "description": "Latitude or northing. Use negative number or letter S for coordinates on southern hemisphere."
+          },
+          "longitude": {
+            "type": "string",
+            "description": "Latitude or easting. Use negative number or letter W for coordinates on western hemisphere."
+          },
+          "geodeticDatum": {
+            "type": "string",
+            "description": "Geodetic datum wip"
+          },
+          "uncertaintyInMeters": {
+            "type": "integer",
+            "description": "Coordinate uncertainty in meters"
+          }
+        },
+        "x-required": [
+          "name",
+          "id",
+          "description",
+          "type"
+        ],
+        "x-category": "locality",
+        "x-modelType": "model"
+      },
+      "verticalPosition": {
+        "additionalProperties": false,
+        "description": "A description of vertical position",
+        "properties": {
+          "maximumDepthInMeters": {
+            "type": "integer",
+            "description": "Max depth (m)"
+          },
+          "maximumElevationInMeters": {
+            "type": "integer",
+            "description": "Max elevation (m)"
+          },
+          "minimumDepthInMeters": {
+            "type": "integer",
+            "description": "Min depth (m)"
+          },
+          "minimumElevationInMeters": {
+            "type": "integer",
+            "description": "Min elevation (m)"
+          }
+        },
+        "x-required": [
+          "name",
+          "id",
+          "description",
+          "type"
+        ],
+        "x-category": "locality",
         "x-modelType": "model"
       },
       "taxon": {
@@ -1425,7 +1504,97 @@
           "scientific_name",
           "valid_name"
         ],
-        "x-category": "other",
+        "x-category": "taxonomy",
+        "x-modelType": "model"
+      },
+      "date": {
+        "additionalProperties": false,
+        "properties": {
+          "dateText": {
+            "type": "integer",
+            "example": "Before 1800"
+          },
+          "day": {
+            "type": "integer",
+            "example": 30
+          },
+          "isoDate": {
+            "type": "integer",
+            "example": 30
+          },
+          "month": {
+            "type": "integer",
+            "example": 30
+          },
+          "year": {
+            "type": "integer",
+            "example": 30
+          }
+        },
+        "x-category": "time",
+        "x-modelType": "model"
+      },
+      "batchItem": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "description": "Should have a one of condition"
+          },
+          "model": {
+            "type": "string"
+          },
+          "schemaVersion": {
+            "type": "string"
+          },
+          "uploaded": {
+            "type": "boolean"
+          },
+          "isValid": {
+            "type": "boolean"
+          }
+        },
+        "x-category": "upload",
+        "x-modelType": "model"
+      },
+      "batchUpload": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/batchItem"
+            }
+          },
+          "jobUpload": {
+            "type": "boolean"
+          },
+          "uploadStarted": {
+            "type": "boolean"
+          },
+          "uploadCompleted": {
+            "type": "boolean"
+          },
+          "userId": {
+            "type": "boolean"
+          },
+          "nUploadedItems": {
+            "type": "integer"
+          },
+          "nValidItems": {
+            "type": "integer"
+          },
+          "nItems": {
+            "type": "integer"
+          }
+        },
+        "x-category": "upload",
         "x-modelType": "model"
       },
       "createBatchUploadRequest": {
@@ -1461,25 +1630,6 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/batchItem"
-              }
-            }
-          }
-        }
-      },
-      "createCuratedLocalityRequest": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "curatedLocality",
-                "default": "curatedLocality"
-              },
-              "attributes": {
-                "$ref": "#/components/schemas/curatedLocality"
               }
             }
           }
@@ -1529,25 +1679,6 @@
           }
         }
       },
-      "updateCuratedLocalityRequest": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "curatedLocality",
-                "default": "curatedLocality"
-              },
-              "attributes": {
-                "$ref": "#/components/schemas/curatedLocality"
-              }
-            }
-          }
-        }
-      },
       "updateIndividualGroupRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -1565,6 +1696,29 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/individualGroup"
+              }
+            }
+          }
+        }
+      },
+      "createPhysicalUnitRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "physicalUnit"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/physicalUnit"
               }
             }
           }
@@ -1598,6 +1752,44 @@
           "username"
         ]
       },
+      "createCuratedLocalityRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "curatedLocality",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
+      "updateCuratedLocalityRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "curatedLocality",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
       "createBatchUploadResponse": {
         "additionalProperties": false,
         "type": "object",
@@ -1606,6 +1798,10 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
               "type": {
                 "type": "string",
                 "default": "batchUpload"
@@ -1764,33 +1960,6 @@
           }
         }
       },
-      "createCuratedLocalityResponse": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "data": {
-            "additionalProperties": false,
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "example": "1234"
-              },
-              "versionId": {
-                "type": "string",
-                "example": "1234"
-              },
-              "type": {
-                "type": "string",
-                "default": "curatedLocality"
-              },
-              "attributes": {
-                "$ref": "#/components/schemas/curatedLocality"
-              }
-            }
-          }
-        }
-      },
       "createIndividualGroupResponse": {
         "additionalProperties": false,
         "type": "object",
@@ -1809,60 +1978,6 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/individualGroup"
-              }
-            }
-          }
-        }
-      },
-      "getCuratedLocalityResponse": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "data": {
-            "additionalProperties": false,
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "example": "1234"
-              },
-              "versionId": {
-                "type": "string",
-                "example": "1234"
-              },
-              "type": {
-                "type": "string",
-                "default": "curatedLocality"
-              },
-              "attributes": {
-                "$ref": "#/components/schemas/curatedLocality"
-              }
-            }
-          }
-        }
-      },
-      "getCuratedLocalityByVersionResponse": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "data": {
-            "additionalProperties": false,
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "example": "1234"
-              },
-              "versionId": {
-                "type": "string",
-                "example": "1234"
-              },
-              "type": {
-                "type": "string",
-                "default": "curatedLocality"
-              },
-              "attributes": {
-                "$ref": "#/components/schemas/curatedLocality"
               }
             }
           }
@@ -1894,33 +2009,6 @@
           }
         }
       },
-      "updateCuratedLocalityResponse": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "data": {
-            "additionalProperties": false,
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "example": "1234"
-              },
-              "versionId": {
-                "type": "string",
-                "example": "1234"
-              },
-              "type": {
-                "type": "string",
-                "default": "curatedLocality"
-              },
-              "attributes": {
-                "$ref": "#/components/schemas/curatedLocality"
-              }
-            }
-          }
-        }
-      },
       "updateIndividualGroupResponse": {
         "type": "object",
         "additionalProperties": false,
@@ -1939,6 +2027,55 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/individualGroup"
+              }
+            }
+          }
+        }
+      },
+      "createPhysicalUnitResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "physicalUnit"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/physicalUnit"
+              }
+            }
+          }
+        }
+      },
+      "getPhysicalUnitsResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "additionalProperties": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "physicalUnit"
+                },
+                "id": {
+                  "type": "string",
+                  "example": "1234"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/physicalUnit"
+                }
               }
             }
           }
@@ -2014,6 +2151,114 @@
         "required": [
           "access_token"
         ]
+      },
+      "createCuratedLocalityResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
+      "getCuratedLocalityResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
+      "getCuratedLocalityByVersionResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
+      "updateCuratedLocalityResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
       },
       "getTaxaByNameResponse": {
         "additionalProperties": true,

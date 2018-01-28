@@ -6,6 +6,9 @@
       "type": "array",
       "items": { "$ref": "__ROOT__batchItem" }
     },
+    "jobUpload": {
+      "type": "boolean"
+    },
     "uploadStarted": {
       "type": "boolean"
     },

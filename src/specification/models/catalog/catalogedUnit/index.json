@@ -8,7 +8,7 @@
     },
     "publishRecord": { "type": "boolean" },
     "remarks": { "type": "string", "example": "Some remarks" },
-    "storedUnderTaxonName": { "type": "string", "example": "Sorex minutus" }
+    "storedUnderTaxonName": { "$ref": "__ROOT__taxon" }
   },
   "required": ["catalogNumber"]
 }

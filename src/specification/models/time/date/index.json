@@ -1,0 +1,10 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "dateText": { "type": "integer", "example": "Before 1800" },
+    "day": { "type": "integer", "example": 30 },
+    "isoDate": { "type": "integer", "example": 30 },
+    "month": { "type": "integer", "example": 30 },
+    "year": { "type": "integer", "example": 30 }
+  }
+}

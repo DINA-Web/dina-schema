@@ -1,0 +1,18 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "normalStorageLocationText": { "type": "string" },
+    "physicalUnit": {
+      "type": "array",
+      "items": { "$ref": "__ROOT__physicalUnit" }
+    },
+    "storage": {
+      "type": "string",
+      "description": "Storage reference"
+    },
+    "loan": {
+      "type": "string",
+      "description": "Loan reference"
+    }
+  }
+}
