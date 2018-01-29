@@ -2,7 +2,7 @@
   "additionalProperties": false,
   "properties": {
     "normalStorageLocationText": { "type": "string" },
-    "physicalUnit": {
+    "physicalUnits": {
       "type": "array",
       "items": { "$ref": "__ROOT__physicalUnit" }
     },

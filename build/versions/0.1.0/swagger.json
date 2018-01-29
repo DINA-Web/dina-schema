@@ -175,9 +175,6 @@
           "type": "integer",
           "example": 1981
         },
-        "individualGroup": {
-          "$ref": "#/definitions/individualGroup"
-        },
         "isCurrentIdentification": {
           "type": "boolean",
           "example": true
@@ -229,60 +226,10 @@
             "$ref": "#/definitions/physicalUnit"
           }
         },
-        "version": {
-          "type": "integer"
+        "versionInfo": {
+          "$ref": "#/definitions/versionInfo"
         }
       },
-      "x-category": "catalog",
-      "x-modelType": "model"
-    },
-    "localityInformation": {
-      "additionalProperties": false,
-      "properties": {
-        "curatedLocalities": {
-          "description": "An array with curated localities",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/curatedLocality"
-          }
-        },
-        "position": {
-          "description": "A specific position",
-          "type": "object",
-          "$ref": "#/definitions/position"
-        },
-        "polygon": {
-          "description": "A specific position",
-          "type": "object",
-          "$ref": "#/definitions/polygon"
-        },
-        "verticalPosition": {
-          "description": "A vertical position",
-          "type": "object",
-          "$ref": "#/definitions/verticalPosition"
-        },
-        "coordinatesVerbatim": {
-          "type": "string",
-          "description": "Verbatim coordinates (or corresponding information, e.g. map number) from the original source"
-        },
-        "georeferenceSourcesText": {
-          "type": "string",
-          "description": "Describe how you got the georeferenced coordinates (data source(s), tools, maps ...)"
-        },
-        "localityText": {
-          "type": "string",
-          "description": "TBA"
-        },
-        "localityRemarks": {
-          "type": "string",
-          "description": "Notes on the locality"
-        },
-        "localityVerbatim": {
-          "type": "string",
-          "description": "Verbatim locality names and description, as in the original source, typos and all."
-        }
-      },
-      "description": "# localityInformation\n\nContains information related to where an occurrence happened. \n",
       "x-category": "catalog",
       "x-modelType": "model"
     },
@@ -323,13 +270,47 @@
       "x-category": "catalog",
       "x-modelType": "model"
     },
+    "versionInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "Reference to agent/user"
+        },
+        "deactivatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deactivatedBy": {
+          "type": "string",
+          "description": "Reference to agent/user"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string",
+          "description": "Reference to agent/user"
+        },
+        "versionId": {
+          "type": "string"
+        }
+      },
+      "x-category": "core",
+      "x-modelType": "model"
+    },
     "inventoryUnit": {
       "additionalProperties": false,
       "properties": {
         "normalStorageLocationText": {
           "type": "string"
         },
-        "physicalUnit": {
+        "physicalUnits": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/physicalUnit"
@@ -382,21 +363,8 @@
           "type": "string",
           "description": "Id of the specific version"
         },
-        "createdAt": {
-          "type": "string",
-          "description": "Timestamp corresponding to when created"
-        },
-        "createdBy": {
-          "type": "string",
-          "description": "Some kind of reference to the individual that created the locality"
-        },
-        "updatedBy": {
-          "type": "string",
-          "description": "Some kind of reference to the individual that updated/created the specific version"
-        },
-        "updatedAt": {
-          "type": "string",
-          "description": "Timestamp corresponding to when updated. Could be called versionCreatedAt"
+        "versionInfo": {
+          "$ref": "#/definitions/versionInfo"
         },
         "id": {
           "type": "string",
@@ -468,6 +436,56 @@
           ]
         }
       },
+      "x-category": "locality",
+      "x-modelType": "model"
+    },
+    "localityInformation": {
+      "additionalProperties": false,
+      "properties": {
+        "curatedLocalities": {
+          "description": "An array with curated localities",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/curatedLocality"
+          }
+        },
+        "position": {
+          "description": "A specific position",
+          "type": "object",
+          "$ref": "#/definitions/position"
+        },
+        "polygon": {
+          "description": "A specific position",
+          "type": "object",
+          "$ref": "#/definitions/polygon"
+        },
+        "verticalPosition": {
+          "description": "A vertical position",
+          "type": "object",
+          "$ref": "#/definitions/verticalPosition"
+        },
+        "coordinatesVerbatim": {
+          "type": "string",
+          "description": "Verbatim coordinates (or corresponding information, e.g. map number) from the original source"
+        },
+        "georeferenceSourcesText": {
+          "type": "string",
+          "description": "Describe how you got the georeferenced coordinates (data source(s), tools, maps ...)"
+        },
+        "localityText": {
+          "type": "string",
+          "description": "TBA"
+        },
+        "localityRemarks": {
+          "type": "string",
+          "description": "Notes on the locality"
+        },
+        "localityVerbatim": {
+          "type": "string",
+          "description": "Verbatim locality names and description, as in the original source, typos and all."
+        }
+      },
+      "description": "# localityInformation\n\nContains information related to where an occurrence happened. \n",
       "x-category": "locality",
       "x-modelType": "model"
     },
@@ -797,67 +815,93 @@
       "properties": {
         "data": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
             "type": {
               "type": "string",
-              "example": "individualGroup",
               "default": "individualGroup"
             },
             "attributes": {
               "$ref": "#/definitions/individualGroup"
-            },
-            "additionalData": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "default": "catalogedUnit",
-                    "example": "catalogedUnit"
-                  },
-                  "id": {
-                    "type": "string",
-                    "example": "1234"
-                  },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "catalogNumber": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
             }
           }
         }
       }
     },
-    "updateIndividualGroupRequest": {
-      "type": "object",
+    "createInventoryUnitRequest": {
       "additionalProperties": false,
+      "type": "object",
       "properties": {
         "data": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "id": {
-              "type": "integer"
+              "type": "string",
+              "example": "1234"
             },
             "type": {
               "type": "string",
-              "example": "individualGroup",
-              "default": "individualGroup"
+              "default": "inventoryUnit"
             },
             "attributes": {
-              "$ref": "#/definitions/individualGroup"
+              "$ref": "#/definitions/inventoryUnit"
             }
           }
         }
       }
     },
     "createPhysicalUnitRequest": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
+            "type": {
+              "type": "string",
+              "default": "physicalUnit"
+            },
+            "attributes": {
+              "$ref": "#/definitions/physicalUnit"
+            }
+          }
+        }
+      }
+    },
+    "updateInventoryUnitRequest": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
+            "type": {
+              "type": "string",
+              "default": "physicalUnit"
+            },
+            "attributes": {
+              "$ref": "#/definitions/physicalUnit"
+            }
+          }
+        }
+      }
+    },
+    "updatePhysicalUnitRequest": {
       "additionalProperties": false,
       "type": "object",
       "properties": {
@@ -1121,25 +1165,69 @@
       "type": "object",
       "properties": {
         "data": {
-          "additionalProperties": false,
           "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "id": {
-              "type": "string",
-              "example": "1234"
-            },
             "type": {
               "type": "string",
               "default": "individualGroup"
             },
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
             "attributes": {
               "$ref": "#/definitions/individualGroup"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {
+                "versions": {
+                  "type": "object",
+                  "properties": {
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://domain/catalogApi/v01/individualGroups/{id}/versions"
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/catalogApi/v01/individualGroups/{id}"
             }
           }
         }
       }
     },
-    "getIndividualGroupsResponse": {
+    "getIndividualGroupResponse": {
       "additionalProperties": false,
       "type": "object",
       "properties": {
@@ -1148,6 +1236,7 @@
           "additionalProperties": false,
           "items": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
               "type": {
                 "type": "string",
@@ -1159,30 +1248,125 @@
               },
               "attributes": {
                 "$ref": "#/definitions/individualGroup"
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {}
               }
+            }
+          }
+        },
+        "included": {
+          "type": "array",
+          "example": [
+            {
+              "attributes": {},
+              "id": "1234",
+              "type": "physicalUnit"
+            },
+            {
+              "attributes": {},
+              "id": "1234",
+              "type": "curatedLocality"
+            }
+          ],
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "default": "physicalUnit",
+                    "example": "physicalUnit"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "attributes": {
+                    "$ref": "#/definitions/physicalUnit"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "default": "curatedLocality",
+                    "example": "curatedLocality"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "attributes": {
+                    "$ref": "#/definitions/curatedLocality"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/catalogApi/v01/individualGroups"
             }
           }
         }
       }
     },
-    "updateIndividualGroupResponse": {
-      "type": "object",
+    "createInventoryUnitResponse": {
       "additionalProperties": false,
+      "type": "object",
       "properties": {
         "data": {
-          "additionalProperties": false,
           "type": "object",
+          "additionalProperties": false,
           "properties": {
+            "type": {
+              "type": "string",
+              "default": "inventoryUnit"
+            },
             "id": {
               "type": "string",
               "example": "1234"
             },
-            "type": {
-              "type": "string",
-              "example": "individualGroup"
-            },
             "attributes": {
-              "$ref": "#/definitions/individualGroup"
+              "$ref": "#/definitions/inventoryUnit"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {
+                "physicalUnits": {
+                  "type": "object",
+                  "properties": {
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://domain/api/v01/inventoryUnits/{id}/physicalUnits"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/inventoryUnits/{id}"
             }
           }
         }
@@ -1196,16 +1380,230 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "id": {
-              "type": "string",
-              "example": "1234"
-            },
             "type": {
               "type": "string",
               "default": "physicalUnit"
             },
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
             "attributes": {
               "$ref": "#/definitions/physicalUnit"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {
+                "inventoryUnit": {
+                  "type": "object",
+                  "properties": {
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://domain/api/v01/inventoryUnits/{id}"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/physicalUnits/{id}"
+            }
+          }
+        }
+      }
+    },
+    "deletePhysicalUnitResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "physicalUnit"
+            },
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
+            "attributes": {
+              "$ref": "#/definitions/physicalUnit"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "getInventoryUnitResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "inventoryUnit"
+            },
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
+            "attributes": {
+              "$ref": "#/definitions/inventoryUnit"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {
+                "physicalUnits": {
+                  "type": "object",
+                  "properties": {
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://domain/api/v01/inventoryUnits/{id}/physicalUnits"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/inventoryUnits/{id}"
+            }
+          }
+        }
+      }
+    },
+    "getInventoryUnitPhysicalUnitsResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "additionalProperties": false,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "physicalUnit"
+              },
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "attributes": {
+                "$ref": "#/definitions/physicalUnit"
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "inventoryUnit": {
+                    "type": "object",
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://domain/api/v01/inventoryUnits/{id}"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/inventoryUnits/{id}/physicalUnits"
+            }
+          }
+        }
+      }
+    },
+    "getInventoryUnitsResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "additionalProperties": false,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "inventoryUnit"
+              },
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "attributes": {
+                "$ref": "#/definitions/inventoryUnit"
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "physicalUnits": {
+                    "type": "object",
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://domain/api/v01/inventoryUnits/{id}/physicalUnits"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -1220,6 +1618,7 @@
           "additionalProperties": false,
           "items": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
               "type": {
                 "type": "string",
@@ -1231,7 +1630,111 @@
               },
               "attributes": {
                 "$ref": "#/definitions/physicalUnit"
+              },
+              "relationships": {
+                "type": "object",
+                "properties": {
+                  "inventoryUnit": {
+                    "type": "object",
+                    "properties": {
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "string",
+                            "format": "uri",
+                            "example": "https://domain/api/v01/inventoryUnits/{id}"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/physicalUnits"
+            }
+          }
+        }
+      }
+    },
+    "updateInventoryUnitResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "inventoryUnit"
+            },
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
+            "attributes": {
+              "$ref": "#/definitions/inventoryUnit"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/inventoryUnits/{id}"
+            }
+          }
+        }
+      }
+    },
+    "updatePhysicalUnitResponse": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "default": "physicalUnit"
+            },
+            "id": {
+              "type": "string",
+              "example": "1234"
+            },
+            "attributes": {
+              "$ref": "#/definitions/physicalUnit"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://domain/api/v01/physicalUnits/{id}"
             }
           }
         }
@@ -1340,50 +1843,23 @@
       "type": "object",
       "properties": {
         "data": {
-          "additionalProperties": false,
           "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "id": {
-              "type": "string",
-              "example": "1234"
-            },
-            "versionId": {
-              "type": "string",
-              "example": "1234"
-            },
             "type": {
               "type": "string",
               "default": "curatedLocality"
             },
-            "attributes": {
-              "$ref": "#/definitions/curatedLocality"
-            }
-          }
-        }
-      }
-    },
-    "getCuratedLocalityByVersionResponse": {
-      "additionalProperties": false,
-      "type": "object",
-      "properties": {
-        "data": {
-          "additionalProperties": false,
-          "type": "object",
-          "properties": {
             "id": {
               "type": "string",
               "example": "1234"
             },
-            "versionId": {
-              "type": "string",
-              "example": "1234"
-            },
-            "type": {
-              "type": "string",
-              "default": "curatedLocality"
-            },
             "attributes": {
               "$ref": "#/definitions/curatedLocality"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
@@ -1681,10 +2157,9 @@
         ]
       }
     },
-    "/collections/api/v01/individualGroups": {
+    "/catalogApi/v01/individualGroups": {
       "post": {
         "description": "This endpoint is for the moment used to register mammals in the mammal\nregistration form\n",
-        "operationId": "createIndividualGroup",
         "parameters": [
           {
             "in": "body",
@@ -1710,7 +2185,6 @@
       },
       "get": {
         "description": "Makes it possible to fetch an individualGroup based on\ncatalogedUnit.catalogNumber OR identification.identifiedTaxonNameStandardized\n\nMore information to come\n",
-        "operationId": "getIndividualGroups",
         "parameters": [
           {
             "description": "catalog number used to filter individualGroups",
@@ -1725,20 +2199,13 @@
             "name": "filter[identifiedTaxonNameStandardized]",
             "required": false,
             "type": "string"
-          },
-          {
-            "description": "sub models to include in a comma separated list",
-            "in": "query",
-            "name": "include",
-            "required": false,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/getIndividualGroupsResponse"
+              "$ref": "#/definitions/getIndividualGroupResponse"
             }
           }
         },
@@ -1748,17 +2215,39 @@
         ]
       }
     },
-    "/collections/api/v01/individualGroups/{id}": {
+    "/catalogApi/v01/individualGroups/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "individualGroup id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getIndividualGroupResponse"
+            }
+          }
+        },
+        "summary": "Get a individualGroup by id",
+        "tags": [
+          "catalogApi"
+        ]
+      },
       "patch": {
         "description": "This endpoint is for the moment used to edit mammals in the mammal specimen form\n",
-        "operationId": "updateIndividualGroup",
         "parameters": [
           {
             "in": "body",
-            "name": "updateIndividualGroupRequest",
+            "name": "createIndividualGroupRequest",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/updateIndividualGroupRequest"
+              "$ref": "#/definitions/createIndividualGroupRequest"
             }
           },
           {
@@ -1773,13 +2262,54 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/updateIndividualGroupResponse"
+              "$ref": "#/definitions/createIndividualGroupResponse"
             }
           }
         },
         "summary": "Update an individual group by id",
         "tags": [
           "catalogApi"
+        ]
+      }
+    },
+    "/api/v01/inventoryUnits": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "createInventoryUnitRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/createInventoryUnitRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/createInventoryUnitResponse"
+            }
+          }
+        },
+        "summary": "Create an inventoryUnit",
+        "tags": [
+          "inventoryApi"
+        ]
+      },
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getInventoryUnitsResponse"
+            }
+          }
+        },
+        "summary": "Get inventoryUnits",
+        "tags": [
+          "inventoryApi"
         ]
       }
     },
@@ -1824,6 +2354,78 @@
         ]
       }
     },
+    "/api/v01/inventoryUnits/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "inventoryUnit id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/deletePhysicalUnitResponse"
+            }
+          }
+        },
+        "summary": "Delete an inventory unit",
+        "tags": [
+          "inventoryApi"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "inventoryUnit id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getInventoryUnitResponse"
+            }
+          }
+        },
+        "summary": "Get a inventoryUnit by id",
+        "tags": [
+          "inventoryApi"
+        ]
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "updateInventoryUnitRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateInventoryUnitRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/updateInventoryUnitResponse"
+            }
+          }
+        },
+        "summary": "Update an inventoryUnits",
+        "tags": [
+          "inventoryApi"
+        ]
+      }
+    },
     "/api/v01/physicalUnits/{id}": {
       "delete": {
         "parameters": [
@@ -1839,7 +2441,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/createPhysicalUnitResponse"
+              "$ref": "#/definitions/deletePhysicalUnitResponse"
             }
           }
         },
@@ -1875,10 +2477,10 @@
         "parameters": [
           {
             "in": "body",
-            "name": "createPhysicalUnitRequest",
+            "name": "updatePhysicalUnitRequest",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/createPhysicalUnitRequest"
+              "$ref": "#/definitions/updatePhysicalUnitRequest"
             }
           }
         ],
@@ -1886,11 +2488,36 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/createPhysicalUnitResponse"
+              "$ref": "#/definitions/updatePhysicalUnitResponse"
             }
           }
         },
         "summary": "Update a physicalUnit",
+        "tags": [
+          "inventoryApi"
+        ]
+      }
+    },
+    "/api/v01/inventoryUnits/{id}/physicalUnits": {
+      "get": {
+        "parameters": [
+          {
+            "description": "inventoryUnit id",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/getInventoryUnitPhysicalUnitsResponse"
+            }
+          }
+        },
+        "summary": "Gets all physicalUnits associated with an inventoryUnit",
         "tags": [
           "inventoryApi"
         ]
@@ -1971,14 +2598,13 @@
     },
     "/collections/api/v01/curatedLocality/{id}": {
       "get": {
-        "operationId": "getCuratedLocality",
         "parameters": [
           {
-            "description": "Curated locality id",
+            "description": "Curated locality id\"",
             "in": "path",
             "name": "id",
             "required": true,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {
@@ -2027,9 +2653,8 @@
         ]
       }
     },
-    "/collections/api/v01/curatedLocality/{id}/versions/${versionId}": {
+    "/collections/api/v01/curatedLocality/{id}/versions/{versionId}": {
       "get": {
-        "operationId": "getCuratedLocalityByVersion",
         "parameters": [
           {
             "description": "Curated locality id",
@@ -2050,11 +2675,11 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/getCuratedLocalityByVersionResponse"
+              "$ref": "#/definitions/getCuratedLocalityResponse"
             }
           }
         },
-        "summary": "Find latest version of a curatedLocality",
+        "summary": "Find a specific version of a curatedLocality",
         "tags": [
           "localityApi"
         ]

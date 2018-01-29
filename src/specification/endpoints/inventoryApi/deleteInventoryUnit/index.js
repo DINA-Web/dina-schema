@@ -2,10 +2,10 @@ const createResponse = require('../../../../factories/utilities/createEndpointRe
 
 module.exports = {
   method: 'delete',
-  path: '/api/v01/physicalUnits/{id}',
+  path: '/api/v01/inventoryUnits/{id}',
   pathParams: {
     id: {
-      description: 'physicalUnits id',
+      description: 'inventoryUnit id',
       example: 1,
       required: true,
       schema: {
@@ -16,7 +16,7 @@ module.exports = {
   response: createResponse({
     format: 'object',
     operationId: 'deletePhysicalUnit',
-    resource: 'physicalUnit',
+    resource: 'inventoryUnit',
   }),
-  summary: 'Delete a physical unit',
+  summary: 'Delete an inventory unit',
 }

@@ -22,6 +22,8 @@
       "type": "array",
       "items": { "$ref": "__ROOT__physicalUnit" }
     },
-    "version": { "type": "integer" }
+    "versionInfo": {
+      "$ref": "__ROOT__versionInfo"
+    }
   }
 }

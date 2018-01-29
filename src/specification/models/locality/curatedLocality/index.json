@@ -9,21 +9,8 @@
       "type": "string",
       "description": "Id of the specific version"
     },
-    "createdAt": {
-      "type": "string",
-      "description": "Timestamp corresponding to when created"
-    },
-    "createdBy": {
-      "type": "string",
-      "description": "Some kind of reference to the individual that created the locality"
-    },
-    "updatedBy": {
-      "type": "string",
-      "description": "Some kind of reference to the individual that updated/created the specific version"
-    },
-    "updatedAt": {
-      "type": "string",
-      "description": "Timestamp corresponding to when updated. Could be called versionCreatedAt"
+    "versionInfo": {
+      "$ref": "__ROOT__versionInfo"
     },
     "id": {
       "type": "string",

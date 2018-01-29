@@ -1,28 +1,22 @@
 const createResponse = require('../../../../factories/utilities/createEndpointResponse')
 const createRequest = require('../../../../factories/utilities/createEndpointRequest')
 
-const path = '/api/v01/physicalUnits'
-const selfLink = `${path}/{id}`
+const path = '/api/v01/inventoryUnits/{id}'
+const selfLink = path
 
 module.exports = {
-  method: 'post',
+  method: 'patch',
   path,
   request: createRequest({
     format: 'object',
-    operationId: 'createPhysicalUnit',
+    operationId: 'updateInventoryUnit',
     resource: 'physicalUnit',
   }),
   response: createResponse({
     format: 'object',
-    operationId: 'createPhysicalUnit',
-    relations: [
-      {
-        key: 'inventoryUnit',
-        selfLink: '/api/v01/inventoryUnits/{id}',
-      },
-    ],
-    resource: 'physicalUnit',
+    operationId: 'updateInventoryUnit',
+    resource: 'inventoryUnit',
     selfLink,
   }),
-  summary: 'Create a physicalUnit',
+  summary: 'Update an inventoryUnits',
 }

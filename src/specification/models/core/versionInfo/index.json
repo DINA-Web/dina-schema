@@ -1,0 +1,12 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "createdAt": { "type": "string", "format": "date-time"},
+    "createdBy": { "type": "string", "description": "Reference to agent/user"},
+    "deactivatedAt": { "type": "string", "format": "date-time"},
+    "deactivatedBy": { "type": "string", "description": "Reference to agent/user"},
+    "updatedAt": { "type": "string", "format": "date-time"},
+    "updatedBy": { "type": "string", "description": "Reference to agent/user"},
+    "versionId":{ "type": "string"}
+  }
+}

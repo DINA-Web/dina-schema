@@ -1,14 +1,24 @@
 const createResponse = require('../../../../factories/utilities/createEndpointResponse')
 
-const path = '/api/v01/physicalUnits'
+const path = '/api/v01/inventoryUnits/{id}/physicalUnits'
 const selfLink = path
 
 module.exports = {
   method: 'get',
-  path: '/api/v01/physicalUnits',
+  path,
+  pathParams: {
+    id: {
+      description: 'inventoryUnit id',
+      example: 1,
+      required: true,
+      schema: {
+        type: 'string',
+      },
+    },
+  },
   response: createResponse({
     format: 'array',
-    operationId: 'getPhysicalUnits',
+    operationId: 'getInventoryUnitPhysicalUnits',
     relations: [
       {
         key: 'inventoryUnit',
@@ -18,5 +28,5 @@ module.exports = {
     resource: 'physicalUnit',
     selfLink,
   }),
-  summary: 'Get a physicalUnits',
+  summary: 'Gets all physicalUnits associated with an inventoryUnit',
 }

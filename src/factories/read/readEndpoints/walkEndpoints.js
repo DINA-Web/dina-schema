@@ -13,26 +13,28 @@ module.exports = function walkEndpoints({ directory }) {
       const endpointDirectories = fs.readdirSync(serverPath)
 
       endpointDirectories.forEach(endpointName => {
-        if (endpoints[endpointName]) {
-          throw new Error(
-            `Endpoint with name: ${endpointName} already registered`
-          )
-        }
-        const endpointPath = path.join(serverPath, endpointName)
-        const endpoint = readEndpoint({
-          endpointName,
-          endpointPath,
-          serverName,
-        })
-        const pathMethodName = `${endpoint.method}-${endpoint.path}`
-        if (pathMethodNames[pathMethodName]) {
-          throw new Error(
-            `Path for ${endpointName} already registered: ${pathMethodName}`
-          )
-        }
-        pathMethodNames[pathMethodName] = true
+        if (endpointName !== 'shared') {
+          if (endpoints[endpointName]) {
+            throw new Error(
+              `Endpoint with name: ${endpointName} already registered`
+            )
+          }
+          const endpointPath = path.join(serverPath, endpointName)
+          const endpoint = readEndpoint({
+            endpointName,
+            endpointPath,
+            serverName,
+          })
+          const pathMethodName = `${endpoint.method}-${endpoint.path}`
+          if (pathMethodNames[pathMethodName]) {
+            throw new Error(
+              `Path for ${endpointName} already registered: ${pathMethodName}`
+            )
+          }
+          pathMethodNames[pathMethodName] = true
 
-        endpoints[endpointName] = endpoint
+          endpoints[endpointName] = endpoint
+        }
       })
     }
   })

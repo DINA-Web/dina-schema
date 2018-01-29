@@ -1,20 +1,22 @@
 const createResponse = require('../../../../factories/utilities/createEndpointResponse')
 const createRequest = require('../../../../factories/utilities/createEndpointRequest')
 
+const path = '/api/v01/physicalUnits/{id}'
+const selfLink = path
+
 module.exports = {
   method: 'put',
-  path: '/api/v01/physicalUnits/{id}',
+  path,
   request: createRequest({
-    description: 'A custom request description',
     format: 'object',
-    operationId: 'createPhysicalUnit',
+    operationId: 'updatePhysicalUnit',
     resource: 'physicalUnit',
   }),
   response: createResponse({
-    description: 'A custom response description',
     format: 'object',
-    operationId: 'createPhysicalUnit',
+    operationId: 'updatePhysicalUnit',
     resource: 'physicalUnit',
+    selfLink,
   }),
   summary: 'Update a physicalUnit',
 }
