@@ -777,23 +777,37 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string",
-            "example": "1234"
-          },
           "type": {
             "type": "string",
             "default": "batchUpload"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "batchUpload"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads"
           }
         }
       }
     },
     "description": ""
   },
-  "deleteBatchUploadItemResponse": {
+  "deleteBatchUploadResponse": {
     "additionalProperties": false,
     "type": "object",
     "properties": {
@@ -805,8 +819,26 @@
             "type": "string",
             "default": "batchItem"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "batchItem"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads/{id}/items/{itemId}"
           }
         }
       }
@@ -825,8 +857,42 @@
             "type": "string",
             "default": "batchUpload"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "batchUpload"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "batchItems": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "type": "string",
+                        "format": "uri",
+                        "example": "https://domain/batchUploads/v01/batchUploads/{id}/batchItems"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads/{id}"
           }
         }
       }
@@ -845,8 +911,42 @@
             "type": "string",
             "default": "batchItem"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "batchItem"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "batchUpload": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "type": "string",
+                        "format": "uri",
+                        "example": "https://domain/batchUploads/v01/batchUploads/{id}"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads/{id}/items/{itemId}"
           }
         }
       }
@@ -862,6 +962,7 @@
         "additionalProperties": false,
         "items": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "type": {
               "type": "string",
@@ -873,7 +974,37 @@
             },
             "attributes": {
               "$ref": "batchItem"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {
+                "batchUpload": {
+                  "type": "object",
+                  "properties": {
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://domain/batchUploads/v01/batchUploads/{id}"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads/{id}/items"
           }
         }
       }
@@ -889,6 +1020,7 @@
         "additionalProperties": false,
         "items": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "type": {
               "type": "string",
@@ -900,7 +1032,37 @@
             },
             "attributes": {
               "$ref": "batchUpload"
+            },
+            "relationships": {
+              "type": "object",
+              "properties": {
+                "batchItems": {
+                  "type": "object",
+                  "properties": {
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "string",
+                          "format": "uri",
+                          "example": "https://domain/batchUploads/v01/batchUploads/{id}/batchItems"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads"
           }
         }
       }
@@ -919,8 +1081,26 @@
             "type": "string",
             "default": "batchUpload"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "batchUpload"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads/{id}"
           }
         }
       }
@@ -939,8 +1119,42 @@
             "type": "string",
             "default": "batchItem"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "batchItem"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {
+              "batchUpload": {
+                "type": "object",
+                "properties": {
+                  "links": {
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "type": "string",
+                        "format": "uri",
+                        "example": "https://domain/batchUploads/v01/batchUploads/{id}"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/batchUploads/v01/batchUploads/{id}/items/{itemId}"
           }
         }
       }
@@ -1155,7 +1369,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/inventoryUnits/{id}"
+            "example": "https://domain/inventoryApi/v01/inventoryUnits/{id}"
           }
         }
       }
@@ -1209,7 +1423,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/physicalUnits/{id}"
+            "example": "https://domain/inventoryApi/v01/physicalUnits/{id}"
           }
         }
       }
@@ -1275,7 +1489,7 @@
                       "self": {
                         "type": "string",
                         "format": "uri",
-                        "example": "https://domain/api/v01/inventoryUnits/{id}/physicalUnits"
+                        "example": "https://domain/inventoryApi/v01/inventoryUnits/{id}/physicalUnits"
                       }
                     }
                   }
@@ -1291,7 +1505,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/inventoryUnits/{id}"
+            "example": "https://domain/inventoryApi/v01/inventoryUnits/{id}"
           }
         }
       }
@@ -1349,7 +1563,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/inventoryUnits/{id}/physicalUnits"
+            "example": "https://domain/inventoryApi/v01/inventoryUnits/{id}/physicalUnits"
           }
         }
       }
@@ -1455,7 +1669,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/physicalUnits"
+            "example": "https://domain/inventoryApi/v01/physicalUnits"
           }
         }
       }
@@ -1493,7 +1707,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/inventoryUnits/{id}"
+            "example": "https://domain/inventoryApi/v01/inventoryUnits/{id}"
           }
         }
       }
@@ -1531,7 +1745,7 @@
           "self": {
             "type": "string",
             "format": "uri",
-            "example": "https://domain/api/v01/physicalUnits/{id}"
+            "example": "https://domain/inventoryApi/v01/physicalUnits/{id}"
           }
         }
       }
@@ -1616,23 +1830,33 @@
     "type": "object",
     "properties": {
       "data": {
-        "additionalProperties": false,
         "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string",
-            "example": "1234"
-          },
-          "versionId": {
-            "type": "string",
-            "example": "1234"
-          },
           "type": {
             "type": "string",
             "default": "curatedLocality"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "curatedLocality"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/localityApi/v01/curatedLocalities/{id}"
           }
         }
       }
@@ -1663,6 +1887,54 @@
             "properties": {}
           }
         }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/localityApi/v01/curatedLocality/{id}"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "getCuratedLocalityByVersionResponse": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "default": "curatedLocality"
+          },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
+          "attributes": {
+            "$ref": "curatedLocality"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/localityApi/v01/curatedLocality/{id}/versions/{versionId}"
+          }
+        }
       }
     },
     "description": ""
@@ -1672,23 +1944,33 @@
     "type": "object",
     "properties": {
       "data": {
-        "additionalProperties": false,
         "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string",
-            "example": "1234"
-          },
-          "versionId": {
-            "type": "string",
-            "example": "1234"
-          },
           "type": {
             "type": "string",
             "default": "curatedLocality"
           },
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "attributes": {
             "$ref": "curatedLocality"
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "links": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://domain/localityApi/v01/curatedLocalities/{id}"
           }
         }
       }
@@ -1752,32 +2034,16 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "type": {
             "type": "string",
             "default": "batchUpload"
           },
           "attributes": {
             "$ref": "batchUpload"
-          }
-        }
-      }
-    },
-    "description": ""
-  },
-  "updateBatchUploadItemRequest": {
-    "additionalProperties": false,
-    "type": "object",
-    "properties": {
-      "data": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "type": {
-            "type": "string",
-            "default": "batchItem"
-          },
-          "attributes": {
-            "$ref": "batchItem"
           }
         }
       }
@@ -1870,10 +2136,10 @@
           },
           "type": {
             "type": "string",
-            "default": "physicalUnit"
+            "default": "inventoryUnit"
           },
           "attributes": {
-            "$ref": "physicalUnit"
+            "$ref": "inventoryUnit"
           }
         }
       }
@@ -1933,36 +2199,20 @@
     ],
     "description": ""
   },
-  "createCuratedLocalityRequest": {
-    "additionalProperties": false,
-    "type": "object",
-    "properties": {
-      "data": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "example": "curatedLocality",
-            "default": "curatedLocality"
-          },
-          "attributes": {
-            "$ref": "curatedLocality"
-          }
-        }
-      }
-    },
-    "description": ""
-  },
   "updateCuratedLocalityRequest": {
     "additionalProperties": false,
     "type": "object",
     "properties": {
       "data": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "example": "1234"
+          },
           "type": {
             "type": "string",
-            "example": "curatedLocality",
             "default": "curatedLocality"
           },
           "attributes": {

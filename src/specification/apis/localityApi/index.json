@@ -1,0 +1,5 @@
+{
+  "basePath": "/localityApi/v01/",
+  "name": "Locality api",
+  "url": "https://alpha-keycloak.dina-web.net"
+}

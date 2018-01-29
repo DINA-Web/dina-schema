@@ -1,4 +1,5 @@
 {
+  "basePath": "/catalogApi/v01/",
   "name": "Api server",
   "url": "https://alpha-api.dina-web.net"
 }

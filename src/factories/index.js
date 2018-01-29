@@ -14,7 +14,7 @@ const createModels = require('./models')
 const createSwagger = require('./swagger')
 
 const basePath = path.join(__dirname, '../specification')
-const endpointsPath = path.join(basePath, 'endpoints')
+const endpointsPath = path.join(basePath, 'apis')
 const modelsPath = path.join(basePath, 'models')
 const parametersPath = path.join(basePath, 'parameters')
 const apisPath = path.join(basePath, 'apis')
