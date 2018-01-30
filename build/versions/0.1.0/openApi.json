@@ -43,6 +43,314 @@
     }
   ],
   "paths": {
+    "/api/v01/batchUploads": {
+      "post": {
+        "operationId": "createBatchUpload",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createBatchUploadRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createBatchUploadResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Create a batch upload",
+        "tags": [
+          "batchUpload"
+        ]
+      },
+      "get": {
+        "operationId": "getBatchUploads",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getBatchUploadsResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get batchUploads",
+        "tags": [
+          "batchUpload"
+        ]
+      }
+    },
+    "/api/v01/batchUploads/{id}/items/{itemId}": {
+      "delete": {
+        "operationId": "deleteBatchUploadItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload id",
+            "required": true,
+            "example": 1
+          },
+          {
+            "in": "path",
+            "name": "itemId",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload item id",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deleteBatchUploadItemResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Delete a batch upload item",
+        "tags": [
+          "batchUpload"
+        ]
+      },
+      "get": {
+        "operationId": "getBatchUploadItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload id",
+            "required": true,
+            "example": "1"
+          },
+          {
+            "in": "path",
+            "name": "itemId",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload item id",
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getBatchUploadItemResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get a batch update item by itemId",
+        "tags": [
+          "batchUpload"
+        ]
+      },
+      "put": {
+        "operationId": "updateBatchUploadItem",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload id",
+            "required": true,
+            "example": "1"
+          },
+          {
+            "in": "path",
+            "name": "itemId",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload item id",
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateBatchUploadItemRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateBatchUploadItemResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get a batch update by id",
+        "tags": [
+          "batchUpload"
+        ]
+      }
+    },
+    "/api/v01/batchUploads/{id}": {
+      "get": {
+        "operationId": "getBatchUpload",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload id",
+            "required": true,
+            "example": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getBatchUploadResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get a batch update by id",
+        "tags": [
+          "batchUpload"
+        ]
+      }
+    },
+    "/api/v01/batchUploads/{id}/items": {
+      "get": {
+        "operationId": "getBatchUploadItems",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Batch upload id",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getBatchUploadItemsResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Get batchUpload items",
+        "tags": [
+          "batchUpload"
+        ]
+      }
+    },
+    "/api/v01/batchUploads/actions/save": {
+      "post": {
+        "operationId": "saveBatchUpload",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/saveBatchUploadResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Save a batch upload",
+        "tags": [
+          "batchUpload"
+        ]
+      }
+    },
+    "/collections/api/v01/curatedLocality": {
+      "post": {
+        "description": "Create a curatedLocality\n",
+        "operationId": "createCuratedLocality",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createCuratedLocalityRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createCuratedLocalityResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Create a curatedLocality",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
     "/collections/api/v01/individualGroups": {
       "post": {
         "description": "This endpoint is for the moment used to register mammals in the mammal\nregistration form\n",
@@ -123,6 +431,123 @@
           }
         },
         "summary": "Finds individualGroups",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
+    "/collections/api/v01/curatedLocality/{id}": {
+      "get": {
+        "operationId": "getCuratedLocality",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Curated locality id",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCuratedLocalityResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Find latest version of a curatedLocality",
+        "tags": [
+          "collectionsApi"
+        ]
+      },
+      "put": {
+        "operationId": "updateCuratedLocality",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "curatedLocality id",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateCuratedLocalityRequest"
+              }
+            }
+          },
+          "description": "successful operation"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateCuratedLocalityResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Update an curatedLocality id",
+        "tags": [
+          "collectionsApi"
+        ]
+      }
+    },
+    "/collections/api/v01/curatedLocality/{id}/versions/${versionId}": {
+      "get": {
+        "operationId": "getCuratedLocalityByVersion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Curated locality id",
+            "required": true,
+            "example": 1
+          },
+          {
+            "in": "path",
+            "name": "versionId",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Curated locality versionId",
+            "required": true,
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getCuratedLocalityByVersionResponse"
+                }
+              }
+            },
+            "description": "successful operation"
+          }
+        },
+        "summary": "Find latest version of a curatedLocality",
         "tags": [
           "collectionsApi"
         ]
@@ -311,11 +736,71 @@
   },
   "components": {
     "schemas": {
+      "batchItem": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "description": "Should have a one of condition"
+          },
+          "model": {
+            "type": "string"
+          },
+          "schemaVersion": {
+            "type": "string"
+          },
+          "uploaded": {
+            "type": "boolean"
+          },
+          "isValid": {
+            "type": "boolean"
+          }
+        },
+        "x-category": "batch",
+        "x-modelType": "model"
+      },
+      "batchUpload": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/batchItem"
+            }
+          },
+          "uploadStarted": {
+            "type": "boolean"
+          },
+          "uploadCompleted": {
+            "type": "boolean"
+          },
+          "userId": {
+            "type": "boolean"
+          },
+          "nUploadedItems": {
+            "type": "integer"
+          },
+          "nValidItems": {
+            "type": "integer"
+          },
+          "nItems": {
+            "type": "integer"
+          }
+        },
+        "x-category": "batch",
+        "x-modelType": "model"
+      },
       "catalogedUnit": {
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "physicalUnits": {
             "type": "array",
@@ -348,6 +833,7 @@
           "id": 1234,
           "storedUnderTaxonName": "mjau"
         },
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "featureObservation": {
@@ -369,13 +855,14 @@
             "$ref": "#/components/schemas/featureObservationType"
           },
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "methodText": {
             "type": "string",
             "example": "Known age"
           }
         },
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "featureObservationType": {
@@ -393,27 +880,28 @@
             ]
           },
           "id": {
-            "type": "integer",
+            "type": "string",
             "enum": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6"
             ]
           }
         },
         "required": [
           "featureObservationTypeName"
         ],
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "identification": {
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "identificationRemarks": {
             "type": "string",
@@ -462,6 +950,7 @@
             "type": "integer"
           }
         },
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "individualGroup": {
@@ -481,7 +970,7 @@
             }
           },
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "identifications": {
             "type": "array",
@@ -508,83 +997,57 @@
             "type": "integer"
           }
         },
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "localityInformation": {
         "additionalProperties": false,
         "properties": {
-          "continentStandardized": {
-            "type": "string",
-            "description": "Name of a continent"
+          "curatedLocalities": {
+            "description": "An array with curated localities",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/curatedLocality"
+            }
+          },
+          "position": {
+            "description": "A specific position",
+            "type": "object",
+            "$ref": "#/components/schemas/position"
+          },
+          "polygon": {
+            "description": "A specific position",
+            "type": "object",
+            "$ref": "#/components/schemas/polygon"
+          },
+          "verticalPosition": {
+            "description": "A vertical position",
+            "type": "object",
+            "$ref": "#/components/schemas/verticalPosition"
           },
           "coordinatesVerbatim": {
             "type": "string",
             "description": "Verbatim coordinates (or corresponding information, e.g. map number) from the original source"
           },
-          "coordinateUncertaintyInMeters": {
-            "type": "string",
-            "description": "Coordinate uncertainty in meters"
-          },
-          "countryStandardized": {
-            "type": "string",
-            "description": "Name of a country"
-          },
-          "districtStandardized": {
-            "type": "string",
-            "description": "Name of a municipality, county or such (e.g. kommun)"
-          },
-          "geodeticDatumStandardized": {
-            "type": "string",
-            "description": "Single data (coordinate system), e.g. “wgs84” or “sweref99”. Leave empty if unknown."
-          },
           "georeferenceSourcesText": {
             "type": "string",
             "description": "Describe how you got the georeferenced coordinates (data source(s), tools, maps ...)"
           },
-          "id": {
-            "type": "integer"
-          },
-          "latitudeStandardized": {
+          "localityText": {
             "type": "string",
-            "description": "Latitude or northing. Use negative number or letter S for coordinates on southern hemisphere."
+            "description": "TBA"
           },
           "localityRemarks": {
             "type": "string",
             "description": "Notes on the locality"
           },
-          "localityStandardized": {
-            "type": "string",
-            "description": "Locality name(s) which don’t fit to other fields. E.g. detailed place or water body (e.g. “Frescati” or “Baltic sea”)"
-          },
           "localityVerbatim": {
             "type": "string",
             "description": "Verbatim locality names and description, as in the original source, typos and all."
-          },
-          "longitudeStandardized": {
-            "type": "string",
-            "description": "Latitude or easting. Use negative number or letter W for coordinates on western hemisphere."
-          },
-          "maximumDepthInMeters": {
-            "type": "string",
-            "description": "Max depth (m)"
-          },
-          "maximumElevationInMeters": {
-            "type": "string",
-            "description": "Max elevation (m)"
-          },
-          "minimumDepthInMeters": {
-            "type": "string",
-            "description": "Min depth (m)"
-          },
-          "minimumElevationInMeters": {
-            "type": "string",
-            "description": "Min elevation (m)"
-          },
-          "provinceStandardized": {
-            "type": "string",
-            "description": "Name of a province (e.g. län)"
           }
         },
+        "description": "# localityInformation\n\nContains information related to where an occurrence happened. \n",
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "occurrence": {
@@ -611,7 +1074,7 @@
             "example": "Vega Expedition"
           },
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "individualGroup": {
             "$ref": "#/components/schemas/individualGroup"
@@ -621,9 +1084,6 @@
           },
           "localityInformation": {
             "$ref": "#/components/schemas/localityInformation"
-          },
-          "localityText": {
-            "type": "string"
           },
           "monthEnd": {
             "type": "integer",
@@ -646,6 +1106,7 @@
             "example": 1990
           }
         },
+        "x-category": "collection",
         "x-modelType": "model"
       },
       "physicalUnit": {
@@ -659,7 +1120,7 @@
             "$ref": "#/components/schemas/catalogedUnit"
           },
           "id": {
-            "type": "integer"
+            "type": "string"
           },
           "individualGroup": {
             "$ref": "#/components/schemas/individualGroup"
@@ -672,6 +1133,179 @@
             "example": "Skin complete, prepared"
           }
         },
+        "x-category": "collection",
+        "x-modelType": "model"
+      },
+      "polygon": {
+        "additionalProperties": false,
+        "description": "A polygon with longitude, latitude vertices",
+        "properties": {
+          "vertices": {
+            "type": "array",
+            "description": "Corners of the polygon in sane format"
+          }
+        },
+        "x-category": "core",
+        "x-modelType": "model"
+      },
+      "position": {
+        "additionalProperties": false,
+        "description": "A position represent a specific position",
+        "properties": {
+          "latitude": {
+            "type": "string",
+            "description": "Latitude or northing. Use negative number or letter S for coordinates on southern hemisphere."
+          },
+          "longitude": {
+            "type": "string",
+            "description": "Latitude or easting. Use negative number or letter W for coordinates on western hemisphere."
+          },
+          "geodeticDatum": {
+            "type": "string",
+            "description": "Geodetic datum wip"
+          },
+          "uncertaintyInMeters": {
+            "type": "integer",
+            "description": "Coordinate uncertainty in meters"
+          }
+        },
+        "x-required": [
+          "name",
+          "id",
+          "description",
+          "type"
+        ],
+        "x-category": "core",
+        "x-modelType": "model"
+      },
+      "verticalPosition": {
+        "additionalProperties": false,
+        "description": "A description of vertical position",
+        "properties": {
+          "maximumDepthInMeters": {
+            "type": "integer",
+            "description": "Max depth (m)"
+          },
+          "maximumElevationInMeters": {
+            "type": "integer",
+            "description": "Max elevation (m)"
+          },
+          "minimumDepthInMeters": {
+            "type": "integer",
+            "description": "Min depth (m)"
+          },
+          "minimumElevationInMeters": {
+            "type": "integer",
+            "description": "Min elevation (m)"
+          }
+        },
+        "x-required": [
+          "name",
+          "id",
+          "description",
+          "type"
+        ],
+        "x-category": "core",
+        "x-modelType": "model"
+      },
+      "curatedLocality": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the locality"
+          },
+          "versionId": {
+            "type": "string",
+            "description": "Id of the specific version"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Timestamp corresponding to when created"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Some kind of reference to the individual that created the locality"
+          },
+          "updatedBy": {
+            "type": "string",
+            "description": "Some kind of reference to the individual that updated/created the specific version"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "Timestamp corresponding to when updated. Could be called versionCreatedAt"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier that is consistent over time"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the locality"
+          },
+          "relations": {
+            "type": "array",
+            "description": "A relation to other curatedLocalities",
+            "items": {
+              "$ref": "#/components/schemas/curatedLocalityRelation"
+            }
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of locality",
+            "enum": [
+              "continent",
+              "country",
+              "district",
+              "geodeticDatum",
+              "locality",
+              "province",
+              "rubin"
+            ]
+          },
+          "centralPosition": {
+            "type": "object",
+            "description": "A position describing the center",
+            "$ref": "#/components/schemas/position"
+          },
+          "polygon": {
+            "type": "object",
+            "description": "A polygon describing the edges",
+            "$ref": "#/components/schemas/polygon"
+          },
+          "verticalPosition": {
+            "description": "A vertical position",
+            "type": "object",
+            "$ref": "#/components/schemas/verticalPosition"
+          }
+        },
+        "x-required": [
+          "name",
+          "id",
+          "description",
+          "type"
+        ],
+        "description": "A curated locality is a ...\n",
+        "x-category": "curatedLocality",
+        "x-modelType": "model"
+      },
+      "curatedLocalityRelation": {
+        "additionalProperties": false,
+        "properties": {
+          "target": {
+            "type": "object",
+            "$ref": "#/components/schemas/curatedLocality"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "inside",
+              "overlap",
+              "border"
+            ]
+          }
+        },
+        "x-category": "curatedLocality",
         "x-modelType": "model"
       },
       "taxon": {
@@ -791,7 +1425,65 @@
           "scientific_name",
           "valid_name"
         ],
+        "x-category": "other",
         "x-modelType": "model"
+      },
+      "createBatchUploadRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchUpload"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchUpload"
+              }
+            }
+          }
+        }
+      },
+      "updateBatchUploadItemRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchItem"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchItem"
+              }
+            }
+          }
+        }
+      },
+      "createCuratedLocalityRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "curatedLocality",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
       },
       "createIndividualGroupRequest": {
         "additionalProperties": false,
@@ -819,8 +1511,8 @@
                       "example": "catalogedUnit"
                     },
                     "id": {
-                      "type": "integer",
-                      "example": 1234
+                      "type": "string",
+                      "example": "1234"
                     },
                     "attributes": {
                       "type": "object",
@@ -832,6 +1524,25 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "updateCuratedLocalityRequest": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "curatedLocality",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
               }
             }
           }
@@ -887,6 +1598,199 @@
           "username"
         ]
       },
+      "createBatchUploadResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchUpload"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchUpload"
+              }
+            }
+          }
+        }
+      },
+      "deleteBatchUploadItemResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchItem"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchItem"
+              }
+            }
+          }
+        }
+      },
+      "getBatchUploadResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchUpload"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchUpload"
+              }
+            }
+          }
+        }
+      },
+      "getBatchUploadItemResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchItem"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchItem"
+              }
+            }
+          }
+        }
+      },
+      "getBatchUploadItemsResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "additionalProperties": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "batchItem"
+                },
+                "id": {
+                  "type": "string",
+                  "example": "1234"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/batchItem"
+                }
+              }
+            }
+          }
+        }
+      },
+      "getBatchUploadsResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "additionalProperties": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "default": "batchUpload"
+                },
+                "id": {
+                  "type": "string",
+                  "example": "1234"
+                },
+                "attributes": {
+                  "$ref": "#/components/schemas/batchUpload"
+                }
+              }
+            }
+          }
+        }
+      },
+      "saveBatchUploadResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchUpload"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchUpload"
+              }
+            }
+          }
+        }
+      },
+      "updateBatchUploadItemResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "default": "batchItem"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/batchItem"
+              }
+            }
+          }
+        }
+      },
+      "createCuratedLocalityResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
       "createIndividualGroupResponse": {
         "additionalProperties": false,
         "type": "object",
@@ -896,8 +1800,8 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "integer",
-                "example": 1234
+                "type": "string",
+                "example": "1234"
               },
               "type": {
                 "type": "string",
@@ -905,6 +1809,60 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/individualGroup"
+              }
+            }
+          }
+        }
+      },
+      "getCuratedLocalityResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
+              }
+            }
+          }
+        }
+      },
+      "getCuratedLocalityByVersionResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
               }
             }
           }
@@ -925,12 +1883,39 @@
                   "default": "individualGroup"
                 },
                 "id": {
-                  "type": "integer",
-                  "example": 1234
+                  "type": "string",
+                  "example": "1234"
                 },
                 "attributes": {
                   "$ref": "#/components/schemas/individualGroup"
                 }
+              }
+            }
+          }
+        }
+      },
+      "updateCuratedLocalityResponse": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "data": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "1234"
+              },
+              "versionId": {
+                "type": "string",
+                "example": "1234"
+              },
+              "type": {
+                "type": "string",
+                "default": "curatedLocality"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/curatedLocality"
               }
             }
           }
@@ -945,8 +1930,8 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "integer",
-                "example": 1234
+                "type": "string",
+                "example": "1234"
               },
               "type": {
                 "type": "string",

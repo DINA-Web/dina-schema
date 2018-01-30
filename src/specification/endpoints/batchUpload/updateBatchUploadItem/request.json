@@ -1,23 +1,19 @@
 {
-  "description": "this is a desc",
-  "content": {
+  "description": "this is a desc for request",
+  "body": {
     "additionalProperties": false,
     "type": "object",
     "properties": {
       "data": {
-        "additionalProperties": false,
         "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string",
-            "example": "1234"
-          },
           "type": {
             "type": "string",
-            "default": "individualGroup"
+            "default": "batchItem"
           },
           "attributes": {
-            "$ref": "__ROOT__individualGroup"
+            "$ref": "__ROOT__batchItem"
           }
         }
       }

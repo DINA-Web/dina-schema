@@ -1,8 +1,8 @@
 {
   "description": "this is a desc",
   "content": {
-    "type": "object",
     "additionalProperties": false,
+    "type": "object",
     "properties": {
       "data": {
         "additionalProperties": false,
@@ -12,13 +12,16 @@
             "type": "string",
             "example": "1234"
           },
+          "versionId": {
+            "type": "string",
+            "example": "1234"
+          },
           "type": {
             "type": "string",
-            "example": "individualGroup"
+            "default": "curatedLocality"
           },
-
           "attributes": {
-            "$ref": "__ROOT__individualGroup"
+            "$ref": "__ROOT__curatedLocality"
           }
         }
       }

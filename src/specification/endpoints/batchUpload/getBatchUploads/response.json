@@ -12,14 +12,14 @@
           "properties": {
             "type": {
               "type": "string",
-              "default": "individualGroup"
+              "default": "batchUpload"
             },
             "id": {
               "type": "string",
               "example": "1234"
             },
             "attributes": {
-              "$ref": "__ROOT__individualGroup"
+              "$ref": "__ROOT__batchUpload"
             }
           }
         }
