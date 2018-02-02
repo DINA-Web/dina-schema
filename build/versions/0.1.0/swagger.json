@@ -119,13 +119,10 @@
         "catalogNumber": {
           "type": "string",
           "example": "584028",
-          "minLength": 6,
-          "description": "Description for catalogNumber\n"
+          "pattern": "^$|^[0-9]{6}$|^[0-9]{8}$",
+          "description": "Catalog number is a string of 6 or 8 digits\n"
         }
       },
-      "required": [
-        "catalogNumber"
-      ],
       "example": {
         "id": 1234,
         "storedUnderTaxonName": "mjau"
