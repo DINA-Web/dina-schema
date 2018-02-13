@@ -1,3 +1,6 @@
+# Note: This repository is archived
+It has been replaced by https://github.com/DINA-Web/dina-collections
+
 # DINA schema
 
 Dina schema contains our api documentation and json schemas for domain models.
