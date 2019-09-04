@@ -1,0 +1,20 @@
+{
+  "description": "Generated catalog number",
+  "content": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "catalogNumber": {
+            "type": "string",
+            "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+            "example": "584028"
+          }
+        }
+      }
+    }
+  }
+}

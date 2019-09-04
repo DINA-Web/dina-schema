@@ -1,0 +1,5 @@
+{
+  "summary": "Validate that a catalog number is unique and correctly formatted",
+  "path": "/collections/api/v01/catalogedUnit/actions/validateCatalogNumber",
+  "method": "post"
+}

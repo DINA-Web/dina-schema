@@ -25,8 +25,8 @@
       "catalogNumber": {
         "type": "string",
         "example": "584028",
-        "minLength": 6,
-        "description": "Description for catalogNumber\n"
+        "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+        "description": "Catalog number is a string of 6 or 8 digits\n"
       }
     },
     "required": [
@@ -522,6 +522,24 @@
     },
     "description": ""
   },
+  "generateCatalogNumberResponse": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "catalogNumber": {
+            "type": "string",
+            "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+            "example": "584028"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
   "getIndividualGroupsResponse": {
     "additionalProperties": false,
     "type": "object",
@@ -567,6 +585,28 @@
           },
           "attributes": {
             "$ref": "individualGroup"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "validateCatalogNumberResponse": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "catalogNumber": {
+            "type": "string",
+            "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+            "example": "584028"
+          },
+          "isValid": {
+            "type": "boolean",
+            "example": true
           }
         }
       }
@@ -740,6 +780,12 @@
     },
     "description": ""
   },
+  "generateCatalogNumberRequest": {
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {},
+    "description": ""
+  },
   "updateIndividualGroupRequest": {
     "type": "object",
     "additionalProperties": false,
@@ -757,6 +803,24 @@
           },
           "attributes": {
             "$ref": "individualGroup"
+          }
+        }
+      }
+    },
+    "description": ""
+  },
+  "validateCatalogNumberRequest": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "data": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "catalogNumber": {
+            "type": "string",
+            "pattern": "^[0-9]{6}$|^[0-9]{8}$",
+            "example": "584028"
           }
         }
       }
